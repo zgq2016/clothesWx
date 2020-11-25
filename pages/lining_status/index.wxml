@@ -1,0 +1,27 @@
+<view class="operation" wx:if='{{options_ss!=3}}'>
+  <view class="tab">
+    <view bindtap='go_modify_order' wx:if='{{state==1||state==5}}'>修改订单</view>
+    <view bindtap='go_close_order' wx:if='{{state==1||state==5}}'>取消订单</view>
+    <view bindtap='go_delay_back'>延迟回料</view>
+    <view bindtap='go_portion_back'>部分回料</view>
+    <view bindtap='go_all_back'>全部回料</view>
+  </view>
+</view>
+
+<view class="view_log">
+  <view>
+    <view class="log" wx:for='{{arr}}' wx:key='id'>
+      <view class="ctime">
+        <view>预计回料时间</view>
+        <view>{{item.returntime}}</view>
+      </view>
+      <view class="cell_circle">
+        <view></view>
+      </view>
+      <view class="logname">
+        <view>{{item.logname}}</view>
+        <view>{{item.ctime}}</view>
+      </view>
+    </view>
+  </view>
+</view>

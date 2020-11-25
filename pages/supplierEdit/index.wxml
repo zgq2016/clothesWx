@@ -1,0 +1,129 @@
+<import src="../../components/we-cropper/we-cropper" />
+
+<view class="newStyle" wx:if='{{step_status==0}}'>
+  <view class="main">
+    <view class="images_upload">
+      <view class="upload">
+        <image wx:if='{{cardpicurl}}' src="{{cardpicurl}}" mode='center' bindtap='get_cardpicurl_image' />
+        <view wx:if='{{!cardpicurl}}' class="image2" bindtap='get_cardpicurl_image'>
+          <image src="../../static/upload.svg" style="width: 60rpx;height: 60rpx;" />
+          <view>公司LOGO</view>
+        </view>
+      </view>
+      <view class="upload">
+        <image wx:if='{{tempFilePaths}}' src="{{tempFilePaths}}" mode='center' bindtap='Image_recognition_content' />
+        <view wx:if='{{!tempFilePaths}}' class="image2" bindtap='Image_recognition_content'>
+          <image src="../../static/upload.svg" style="width: 60rpx;height: 60rpx;" />
+          <view>识别内容</view>
+        </view>
+      </view>
+    </view>
+    <view class="border"></view>
+    <view class="form">
+      <view class="style_number">
+        <view class="lable">公司简称</view>
+        <input value="{{companyname}}" placeholder="公司简称" bindinput='get_COHR_be' />
+      </view>
+      <view class="year">
+        <picker bindchange="bindClassNameSelect" value="{{classname}}" range="{{class_names}}" range-key='classname'>
+          <view class="picker">
+            <text class="name" decode="{{true}}">分类</text>
+            <view class="con">
+              <view wx:if='{{!classname}}' style="color: #808080;">
+                {{'分类'}}
+              </view>
+              <view wx:if='{{classname}}'>
+                {{classname}}
+              </view>
+              <view class="iconfont icon-icon-test3"></view>
+            </view>
+          </view>
+        </picker>
+      </view>
+      <view class="style_number" wx:for='{{contact}}' wx:key='*this'>
+        <view class="lable">电话号码</view>
+        <input value="{{item.phone}}" bindinput='get_phone_be' data-index="{{index}}" placeholder="电话号码" />
+        <view class="icon-close iconfont" bindtap='close_phone_be_nothing' data-index="{{index}}" wx:if='{{index!==0}}'>
+        </view>
+        <view class="icon-increase iconfont" bindtap='phone_be_nothing' wx:if='{{index==0}}'></view>
+      </view>
+      <view class="style_number">
+        <view class="lable">地址</view>
+        <input value="{{address}}" bindinput='get_address_be' placeholder="地址" />
+      </view>
+    </view>
+    <view class="border"></view>
+  </view>
+  <view class="popup_title" wx:if='!tempFilePaths'>*注意：识别内容存在差异，谨慎修改！</view>
+  <view wx:for='{{words_result}}' wx:key='id'>
+    <text class="words_result" selectable='true'>{{item.words}}</text>
+  </view>
+  <view class="tempFilePaths">
+    <image src="{{tempFilePaths}}" />
+  </view>
+  <view class="next_step" catchtap="go_second_step">下一步</view>
+</view>
+<view class="newStyle1" wx:if='{{step_status==1}}'>
+  <view class="main">
+    <view class="textarea">
+      <textarea focus="{{focus}}" bindinput='get_remark_be' value='{{remarks}}' placeholder="备注"
+        maxlength='1000'> </textarea>
+      <view>{{cursor||'0'}} / 1000</view>
+    </view>
+    <view class="border"></view>
+    <view class="form">
+      <view class="style_number">
+        <view class="lable">公司全称</view>
+        <input value="{{alias_name}}" bindinput='get_Conme_be' placeholder="公司全称" />
+      </view>
+
+      <view class="bank" wx:for='{{bank}}' wx:key='*this'>
+        <view class="year">
+          <picker bindchange="bindBankSelect" data-index="{{index}}" value="{{item.bank}}" range="{{bank_names}}"
+            range-key='name'>
+            <view class="picker">
+              <text class="name" decode="{{true}}">银行</text>
+              <view class="con">
+                <view wx:if='{{!item.bank}}' style="color: #808080;">
+                  {{'银行'}}
+                </view>
+                <view wx:if='{{item.bank}}'>
+                  {{item.bank}}
+                </view>
+                <view class="iconfont icon-icon-test3"></view>
+              </view>
+            </view>
+          </picker>
+        </view>
+        <view class="style_number">
+          <view class="lable">账户名称</view>
+          <input value="{{item.name}}" bindinput='handle_name_be' data-index="{{index}}" placeholder="账户名称" />
+        </view>
+        <view class="style_number">
+          <view class="lable">账号</view>
+          <input value="{{item.bankid}}" bindinput='handle_bandid_be' data-index="{{index}}" placeholder="账号" />
+          <view class="icon-close iconfont" bindtap='close_bank_increase' data-index="{{index}}" wx:if='{{index!==0}}'>
+          </view>
+          <view class="icon-increase iconfont" bindtap='bank_increase' wx:if='{{index==0}}'></view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="operation">
+    <view class="up_step" catchtap='go_first_step'>上一步</view>
+    <view class="next_step" catchtap='affirm'>确认</view>
+  </view>
+</view>
+
+
+<view class="we_cropper" wx:if='{{we_cropper_active}}'>
+  <view class="imgDisposeBlock">
+    <view class='imgDisposeArea'>
+      <template is="we-cropper" data="{{...cropperOpt}}" />
+    </view>
+    <view class='imgDisposeControlLine'>
+      <view class='editBtn closeBtn' bindtap="closeTap">取消</view>
+      <view class='editBtn editPerfectBtn' bindtap="getCropperImage">上传</view>
+    </view>
+  </view>
+</view>

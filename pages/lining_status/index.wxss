@@ -1,0 +1,46 @@
+.operation {
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20rpx 0;
+}
+.operation .tab {
+  width: 600rpx;
+  height: 100rpx;
+  border-radius: 100rpx;
+  background-color: #ccc;
+  display: flex;
+}
+.operation .tab view {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.view_log {
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20rpx 0;
+}
+.view_log .log {
+  display: flex;
+}
+.view_log .log .cell_circle {
+  width: 10rpx;
+  height: 150rpx;
+  background-color: #ccc;
+  position: relative;
+  margin: 0 20rpx;
+}
+.view_log .log .cell_circle view {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 10rpx;
+  height: 10rpx;
+  border-radius: 50%;
+  background-color: #000;
+}

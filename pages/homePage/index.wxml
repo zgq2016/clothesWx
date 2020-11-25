@@ -1,0 +1,107 @@
+<tabBar></tabBar>
+<view wx:if="{{homepage}}">
+  <view class="design_project" wx:if="{{Z2000}}">
+    <view class="The_design_style">
+      <view class="name">
+        <view>设计项目</view>
+        <view></view>
+      </view>
+    </view>
+    <view class="project" wx:for='{{project_list}}' wx:key='id' bindtap='go_project' data-item="{{item}}">
+
+      <view class="list">
+        <view class="img" wx:if='{{!item.picurl==""}}'>
+          <image src="{{item.picurl}}" mode='aspectFill' />
+        </view>
+        <view class="img" wx:if='{{item.picurl==""}}'>
+          <image wx:if="{{item.projecttypename=='意向订单'}}" src="../../static/意向.jpg" mode='aspectFill' />
+          <image wx:if="{{item.projecttypename=='阶段工作'}}" src="../../static/阶段.jpg" mode='aspectFill' />
+          <image wx:if="{{item.projecttypename=='企划系列'}}" src="../../static/系列.jpg" mode='aspectFill' />
+        </view>
+
+        <view class="con">
+          <view class="name">{{item.projectname}}</view>
+          <view class="username">
+            <view>{{item.user_name}}</view>
+            <view>[ {{item.projecttypename}} ]</view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="design_style" wx:if="{{Z4000}}">
+    <view class="The_design_style">
+      <view class="name">
+        <view>版料采购</view>
+        <view></view>
+      </view>
+    </view>
+    <view wx:if='{{style_list.length==0}}'>暂无数据</view>
+    <view class="main">
+      <view class="style_list">
+        <view class="list" wx:for='{{style_list}}' wx:key='id' bindtap='go_style1' data-item="{{item}}">
+          <view class="img">
+            <image mode='aspectFill' src="{{item.style_pic_url}}" />
+          </view>
+          <view class="con">
+            <view class="name">{{item.stylename}}</view>
+            <view class="username">
+              <view>{{item.style_type}}</view>
+              <view>{{item.username}}</view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="design_style" wx:if="{{Z5000}}">
+    <view class="The_design_style">
+      <view class="name">
+        <view>纸样</view>
+        <view></view>
+      </view>
+    </view>
+    <view wx:if='{{style_pattern_list.length==0}}'>暂无数据</view>
+    <view class="main">
+      <view class="style_list">
+        <view class="list" wx:for='{{style_pattern_list}}' wx:key='id' bindtap='go_style2' data-item="{{item}}">
+          <view class="img">
+            <image mode='aspectFill' src="{{item.style_pic_url}}" />
+          </view>
+          <view class="con">
+            <view class="name">{{item.stylename}}</view>
+            <view class="username">
+              <view>{{item.style_type}}</view>
+              <view>{{item.username}}</view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="design_style" wx:if="{{Z6000}}">
+    <view class="The_design_style">
+      <view class="name">
+        <view>制版</view>
+        <view></view>
+      </view>
+    </view>
+    <view wx:if='{{style_sample_list.length==0}}'>暂无数据</view>
+    <view class="main">
+      <view class="style_list">
+        <view class="list" wx:for='{{style_sample_list}}' wx:key='id' bindtap='go_style3' data-item="{{item}}">
+          <view class="img">
+            <image mode='aspectFill' src="{{item.style_pic_url}}" />
+          </view>
+          <view class="con">
+            <view class="name">{{item.stylename}}</view>
+            <view class="username">
+              <view>{{item.style_type}}</view>
+              <view>{{item.username}}</view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

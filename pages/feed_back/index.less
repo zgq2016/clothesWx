@@ -1,0 +1,227 @@
+page {
+  margin-bottom: 200rpx;
+}
+.newStyle {
+  .main {
+    .textarea {
+      margin: 10rpx 40rpx;
+      position: relative;
+      height: 400rpx;
+      border-bottom: 1rpx solid #f2f2f2;
+      textarea {
+        width: 670rpx;
+        height: 350rpx;
+        font-size: 30rpx;
+      }
+      view {
+        height: 50rpx;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        color: #dfdfdf;
+      }
+    }
+    .images_upload {
+      margin: 40rpx;
+      image {
+        width: 260rpx;
+        height: 260rpx;
+        border-radius: 10rpx;
+      }
+      .upload {
+        width: 260rpx;
+        height: 260rpx;
+        border-radius: 10rpx;
+        margin: 10rpx;
+        background-color: #ccc;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+      }
+    }
+    .form {
+      margin: 10rpx 40rpx;
+      width: 670rpx;
+      font-size: 30rpx;
+      .designation {
+        border-bottom: 1rpx solid #f2f2f2;
+        width: 670rpx;
+        height: 100rpx;
+        display: flex;
+        align-items: center;
+        text {
+          width: 200rpx;
+          height: 100rpx;
+          display: flex;
+          justify-content: flex-start;
+          align-items: center;
+        }
+        input {
+          flex: 1;
+          height: 100rpx;
+        }
+        view {
+          flex: 1;
+          height: 100rpx;
+          display: flex;
+          align-items: center;
+          justify-content: flex-end;
+        }
+      }
+      .date {
+        border-bottom: 1rpx solid #f2f2f2;
+        height: 100rpx;
+      }
+      .icon-icon-test3 {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        -webkit-transform: rotate(270deg);
+        transform: rotate(270deg);
+        color: #000;
+      }
+      .picker {
+        width: 670rpx;
+        height: 100rpx;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        .name {
+          width: 200rpx;
+        }
+        .con {
+          display: flex;
+          align-items: center;
+          .placeholder {
+            margin-right: 10rpx;
+            color: #ccc;
+          }
+        }
+      }
+    }
+  }
+}
+.next_step {
+  width: 600rpx;
+  height: 80rpx;
+  background-color: #000;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 200rpx;
+  position: fixed;
+  bottom: 30rpx;
+  left: 50%;
+  transform: translate(-50%, 0);
+}
+.we_cropper {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 9999999;
+
+  .imgDisposeBlock {
+    position: absolute;
+    z-index: 99;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgb(0, 0, 0);
+    overflow: hidden;
+  }
+
+  .imgDisposeArea {
+    width: 100vw;
+    height: 92vh;
+    overflow: hidden;
+  }
+
+  .imgDisposeControlLine {
+    width: 100vw;
+    height: 10vh;
+    display: flex;
+    justify-content: space-between;
+    margin: 0 10rpx;
+  }
+
+  .editBtn {
+    height: 60rpx;
+    font-size: 30rpx;
+    text-align: center;
+    line-height: 60rpx;
+    color: #fff;
+    // margin: 30rpx 20rpx;
+  }
+
+  .editBtn.closeBtn {
+    flex: 150rpx;
+  }
+  .editBtn.reelectBtn {
+    flex: 150rpx;
+  }
+  .editPerfectBtns {
+    flex: 150rpx;
+    height: 60rpx;
+    font-size: 30rpx;
+    text-align: center;
+    line-height: 60rpx;
+    color: #fff;
+  }
+  .editBtn.editPerfectBtn {
+    flex: 150rpx;
+  }
+
+  .finalCanvasClass {
+    position: absolute;
+    top: -600%;
+    left: 0;
+    z-index: 15;
+    transform-origin: left top;
+    transform: scale(0.25);
+  }
+
+  .letterCanvasClass {
+    position: absolute;
+    top: -9999rpx;
+    left: 0;
+    transform-origin: left top;
+    transform: scale(0.25);
+    z-index: -1;
+  }
+
+  .letterSrcClass {
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  /* 截图canvas放大 真机上不行*/
+  /* .cropper{
+    transform-origin: left top;
+    transform: scale(0.25);
+  } */
+
+  .shadowBlock {
+    width: 100%;
+    height: 100%;
+    background: #f7f7f7;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 99;
+  }
+}
+.border {
+  padding: 0;
+  margin: 0;
+  width: 100vw;
+  border-top: 10px solid #ccc;
+}

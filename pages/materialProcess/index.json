@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "tabBar": "../../components/tabBar/tabBar"
+  },
+  "navigationBarTitleText": "物料工艺卡",
+  "enablePullDownRefresh": true
+}

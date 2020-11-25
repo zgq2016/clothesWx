@@ -1,0 +1,303 @@
+<import src="../../components/we-cropper/we-cropper" />
+
+
+
+<view class="newStyle" wx:if='{{step_status==0}}'>
+  <view class="main">
+    <view class="upload">
+      <image wx:if='{{picurl}}' src="{{picurl}}" mode='center' bindtap='get_color_image' />
+      <view wx:if='{{!picurl}}' class="image2" bindtap='get_color_image'>
+        <image src="../../static/upload.svg" style="width: 60rpx;height: 60rpx;" />
+        <view>物料图片</view>
+      </view>
+    </view>
+    <view class="border"></view>
+    <view class="form">
+      <view class="year">
+        <picker mode="multiSelector" bindchange="bindColorPickerChange" bindcolumnchange="bindColorPickerColumnChange"
+          value="{{colorIndex}}" range="{{colorList}}" data-index="{{index}}">
+          <view class="picker">
+            <text class="name" decode="{{true}}">颜色</text>
+            <view class="con">
+              <view wx:if='{{!color}}' style="color: #808080;">
+                {{'颜色'}}
+              </view>
+              <view wx:if='{{color}}'>
+                {{color}}
+              </view>
+              <view class="iconfont icon-icon-test3"></view>
+            </view>
+          </view>
+        </picker>
+      </view>
+      <view class="style_number">
+        <view class="lable">色号</view>
+        <input class="color_no_be" type="text" value="{{color_no}}" bindchange='get_color_no' placeholder="色号" />
+        <view class="color_no_nothing" bindtap='get_color_no_nothing'>无</view>
+      </view>
+      <view class="affirm" bindtap='affirm_color'>
+        <view>确认</view>
+      </view>
+    </view>
+    <view class="border"></view>
+  </view>
+  <view class="table">
+    <view class="color_card" wx:for='{{color_data}}' wx:key='*this' bindtap='handle_long' data-item="{{item}}">
+      <view class="image">
+        <image src="{{item.picurl}}" mode="aspectFill" />
+      </view>
+      <view class="color_color_no">
+        <view>
+          <view class="color">{{item.color}}</view>
+          <view class="color_no">{{item.color_no}}</view>
+        </view>
+        <view class="iconfont icon-close" bindtap='del_close' data-index="{{index}}"></view>
+      </view>
+    </view>
+  </view>
+  <!-- <view class="operation">
+    <view class="up_step" bindtap="go_second_step" data-num="0">下一步</view>
+    <view class="next_step" bindtap="handle_add_materials">确认</view>
+  </view> -->
+  <view class="next_step" bindtap="go_second_step" data-num="0">下一步</view>
+</view>
+<view class="newStyle1" wx:if='{{step_status==1}}'>
+  <view class="main">
+    <view class="form">
+      <view class="year">
+        <picker mode="multiSelector" bindchange="bindClassifyPickerChange"
+          bindcolumnchange="bindClassifyPickerColumnChange" value="{{classifyIndex}}" range="{{classifyList}}"
+          range-key='classname'>
+          <view class="picker">
+            <text class="name" decode="{{true}}">物料分类</text>
+            <view class="con">
+              <view wx:if='{{!classify1}}' style="color: #808080;">
+                {{'物料分类'}}
+              </view>
+              <view wx:if='{{classify1}}'>
+                <view style="display:flex">
+                  <view>{{classify2}} </view>
+                  <view wx:if='{{classify2!=""}}'>/</view>
+                  <view>{{classify1}} </view>
+                </view>
+              </view>
+              <view class="iconfont icon-icon-test3"></view>
+            </view>
+          </view>
+        </picker>
+      </view>
+      <view class="year">
+        <picker bindchange="bindUnitNamesSelect" value="{{unit_name}}" range="{{unit_names}}">
+          <view class="picker">
+            <text class="name" decode="{{true}}">单位</text>
+            <view class="con">
+              <view wx:if='{{!unit_name}}' style="color: #808080;">
+                {{'单位'}}
+              </view>
+              <view wx:if='{{unit_name}}'>
+                {{unit_name}}
+              </view>
+              <view class="iconfont icon-icon-test3"></view>
+            </view>
+          </view>
+        </picker>
+      </view>
+      <view class="style_number">
+        <view class="lable">物料名称</view>
+        <input value="{{materialsname}}" bindinput='get_material_name' placeholder="物料名称" />
+      </view>
+      <view class="style_number">
+        <view class="lable">大货单价</view>
+        <input type="digit" value="{{unit_price}}" bindinput='get_unit_price' placeholder="大货单价" />
+      </view>
+    </view>
+    <view class="supplier_name">
+      <view class="lable">供应商</view>
+      <view></view>
+    </view>
+    <view class="main_list">
+      <view wx:for='{{supplier_item}}' wx:key='id'>
+        <view class="list">
+          <view class="list_left">
+            <view class="list_left_img">
+              <image
+                src="{{item.cardpicurl||'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1565147328&di=3438dbd9e03b9c4abfbd3113abfbc445&imgtype=jpg&er=1&src=http%3A%2F%2Fwww.tucaod.com%2Fwp-content%2Fuploads%2F2017%2F12%2F404huyazhibo.jpg'}}" />
+            </view>
+            <view class="list_left_content">
+              <view class="list_left_content_name">{{item.companyname}}</view>
+              <view>{{item.mainclass}} ({{item.materials_class_name}})</view>
+              <view wx:if="{{item.supplier_contact_data.length>0}}">{{item.supplier_contact_data[0].contacts}} :
+                ({{item.supplier_contact_data[0].phone}})</view>
+            </view>
+          </view>
+          <view class="list_right">101</view>
+        </view>
+      </view>
+    </view>
+    <view class="border"></view>
+    <view class="companyname">
+      <input bindinput='handleSearchInput' value="{{companyname}}" placeholder="搜索供应商">
+      <icon class="icon-small" type="search" size="25"></icon>
+      </input>
+    </view>
+    <view class="border"></view>
+  </view>
+  <view class="main_list">
+    <view class="lists" bindtap='go_supplierEntering' wx:if='{{goods_length==0&&goodsSearch_length==0}}'>添加供应商</view>
+    <view>
+      <view wx:for='{{goods}}' wx:key='id'>
+        <view bindtap='nav_goods' class="list" data-item="{{item}}">
+          <view class="list_left">
+            <view class="list_left_img">
+              <image
+                src="{{item.cardpicurl||'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1565147328&di=3438dbd9e03b9c4abfbd3113abfbc445&imgtype=jpg&er=1&src=http%3A%2F%2Fwww.tucaod.com%2Fwp-content%2Fuploads%2F2017%2F12%2F404huyazhibo.jpg'}}" />
+            </view>
+            <view class="list_left_content">
+              <view class="list_left_content_name">{{item.companyname}}</view>
+              <view>{{item.mainclass}} ({{item.materials_class_name}})</view>
+              <view wx:if="{{item.supplier_contact_data.length>0}}">{{item.supplier_contact_data[0].contacts}} :
+                ({{item.supplier_contact_data[0].phone}})</view>
+            </view>
+          </view>
+          <view class="list_right">101</view>
+        </view>
+      </view>
+    </view>
+
+    <view>
+      <view wx:for='{{goodsSearch}}' wx:key='id'>
+        <view bindtap='nav_goods' class="list" data-item="{{item}}">
+          <view class="list_left">
+            <view class="list_left_img">
+              <image
+                src="{{item.cardpicurl||'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1565147328&di=3438dbd9e03b9c4abfbd3113abfbc445&imgtype=jpg&er=1&src=http%3A%2F%2Fwww.tucaod.com%2Fwp-content%2Fuploads%2F2017%2F12%2F404huyazhibo.jpg'}}" />
+            </view>
+            <view class="list_left_content">
+              <view class="list_left_content_name">{{item.companyname}}</view>
+              <view>{{item.mainclass}} ({{item.materials_class_name}})</view>
+              <view wx:if="{{item.supplier_contact_data.length>0}}">{{item.supplier_contact_data[0].contacts}} :
+                ({{item.supplier_contact_data[0].phone}})</view>
+            </view>
+          </view>
+          <view class="list_right">101</view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="operation">
+    <view class="up_step" bindtap='go_first_step' data-num="0">上一步</view>
+    <view class="next_step" bindtap='go_third_step' data-num="1">下一步</view>
+  </view>
+</view>
+<view class="newStyle2" wx:if='{{step_status==2&&classify2!="辅料"}}'>
+  <view class="main">
+    <view class="upload">
+      <image wx:if='{{tempFilePaths}}' src="{{tempFilePaths}}" mode='center' bindtap='Image_recognition_content' />
+      <view wx:if='{{!tempFilePaths}}' class="image2" bindtap='Image_recognition_content'>
+        <image src="../../static/upload.svg" style="width: 60rpx;height: 60rpx;" />
+        <view>识别内容</view>
+      </view>
+    </view>
+    <view class="border"></view>
+    <view class="form">
+      <view class="style_number">
+        <view class="lable">编号</view>
+        <input value="{{materialsno}}" bindinput='get_materialsno' placeholder="编号/品名/货号" />
+      </view>
+      <view class="style_number">
+        <view class="lable">幅宽</view>
+        <input value="{{breadth_price}}" bindinput='get_breadth_price' placeholder="幅宽" />
+      </view>
+      <view class="style_number">
+        <view class="lable">克重</view>
+        <input value="{{grammage_price}}" bindinput='get_grammage_price' placeholder="克重" />
+      </view>
+      <view wx:for='{{LiningList}}' wx:key='id'>
+        <view class="year" bindtap='go_get_material_name' data-index="{{index}}">
+          <view class="picker">
+            <view>成分</view>
+            <view class="con">
+              <view>{{item.material_name}}</view>
+              <view class="iconfont icon-icon-test3"></view>
+            </view>
+          </view>
+        </view>
+        <view class="style_number">
+          <view class="lable">比例</view>
+          <input type="digit" value="{{item.content}}" bindinput='get_percent_price' placeholder="%"
+            data-index="{{index}}" />
+          <view class="icon-close iconfont" bindtap='close_increase' data-index="{{index}}" wx:if='{{index!==0}}'>
+          </view>
+          <view class="icon-increase iconfont" bindtap='add_increase' wx:if='{{index==0}}'></view>
+        </view>
+      </view>
+    </view>
+    <view class="border"></view>
+  </view>
+  <view class="popup_title" wx:if='!tempFilePaths'>*注意：识别内容存在差异，谨慎修改！</view>
+  <view wx:for='{{words_result}}' wx:key='id'>
+    <text class="words_result" selectable='true'>{{item.words}}</text>
+  </view>
+  <view class="tempFilePaths">
+    <image src="{{tempFilePaths}}" />
+  </view>
+  <view class="operation">
+    <view class="up_step" bindtap="go_second_step" data-num="1">上一步</view>
+    <view class="next_step" bindtap="go_four_step" data-num="2">下一步</view>
+  </view>
+</view>
+<view class="newStyle3" wx:if='{{step_status==3}}'>
+  <view class="main">
+    <view class="textarea">
+      <textarea focus="{{focus}}" value="{{remark_price}}" placeholder="备注" bindinput='get_remark_price'
+        maxlength='1000'> </textarea>
+      <view>{{cursor||'0'}} / 1000</view>
+    </view>
+    <view class="border"></view>
+    <view class="form">
+      <view class="style_number">
+        <view class="lable">付款</view>
+        <radio-group bindchange='get_payment'>
+          <label>
+            <radio value="0" checked="{{radio==0}}" />无货</label>
+          <label>
+            <radio value="1" checked="{{radio==1}}" />有货</label>
+        </radio-group>
+      </view>
+      <view class="style_number">
+        <view class="lable">到货时间</view>
+        <input value="{{timer_price}}" bindinput='get_timer_price' placeholder="到货时间/天" />
+      </view>
+    </view>
+  </view>
+  <view class="operation">
+    <view class="up_step" bindtap="go_third_step" data-num="0">上一步</view>
+    <view class="next_step" bindtap="handle_add_materials">确认</view>
+  </view>
+</view>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<view class="we_cropper" wx:if='{{we_cropper_active}}'>
+  <view class="imgDisposeBlock">
+    <view class='imgDisposeArea'>
+      <template is="we-cropper" data="{{...cropperOpt}}" />
+    </view>
+    <view class='imgDisposeControlLine'>
+      <view class='editBtn closeBtn' bindtap="closeTap">取消</view>
+      <view class='editBtn editPerfectBtn' bindtap="getCropperImage">上传</view>
+    </view>
+  </view>
+</view>

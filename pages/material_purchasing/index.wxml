@@ -1,0 +1,155 @@
+<import src="../../components/we-cropper/we-cropper" />
+
+<view class="material">
+  <view class="material_left">
+    <view class="img">
+      <image class="" src="{{materials_obj.color_data[0].picurl}}" />
+    </view>
+    <view class="con">
+      <view class="name">{{materials_obj.materialsname}}</view>
+      <view>内部编号: {{materials_obj.materialsno}}</view>
+      <view>{{materials_obj.materials_supplier_data[0].supplier_companyname}}</view>
+      <view>
+        {{materials_obj.materials_mainclass_name}}
+        ({{materials_obj.materials_class_name}})
+      </view>
+    </view>
+  </view>
+  <view class="material_right"></view>
+</view>
+<view class="supplier">
+  <view class="supplier_left">
+    <view class="img">
+      <image class="" src="{{supplier_obj.cardpicurl}}" />
+    </view>
+    <view class="con">
+      <view>
+        <view class="name">{{supplier_obj.companyname}}</view>
+        <view>内部编号: {{supplier_obj.mainclass}}</view>
+      </view>
+      <view>101</view>
+    </view>
+  </view>
+  <view class="supplier_right"></view>
+</view>
+
+<view class="newStyle">
+  <view class="main">
+    <view class="textarea">
+      <textarea focus="{{focus}}" bindinput='get_designidea' value='{{form.remark}}' placeholder="备注"
+        maxlength='1000'> </textarea>
+      <view>{{cursor||'0'}} / 1000</view>
+    </view>
+    <view class="images_upload">
+      <view class="Iamge" wx:if='{{!form.picurl}}' bindtap='Iamge'>
+        <image src="../../static/upload.svg" style="width: 60rpx;height: 60rpx;" />
+        <view class="name">上传凭证</view>
+      </view>
+      <view class="image">
+        <image wx:if='{{form.picurl}}' src="{{form.picurl}}" mode='center' bindtap='Iamge' />
+      </view>
+    </view>
+    <view class="border"></view>
+    <view class="form">
+      <view class="style_number">
+        <view class="lable">用量</view>
+        <input type="digit" placeholder="用量" bindinput='get_dosage' />
+      </view>
+      <view class="style_number">
+        <view class="lable">采购量</view>
+        <input type="digit" placeholder="采购量" bindinput='get_amountPurchased' />
+      </view>
+      <view class="style_number">
+        <view class="lable">采购单价</view>
+        <input type="digit" placeholder="采购单价" bindinput='get_purchasePrice' />
+      </view>
+      <view class="style_number">
+        <view class="lable">金额</view>
+        <input type="digit" value="{{form.money}}" placeholder="金额" bindinput='get_money' />
+      </view>
+      <view class="style_number">
+        <view class="lable">付款</view>
+        <radio-group bindchange='get_payment'>
+          <label>
+            <radio value="0" checked="{{form.payment==0}}" />订金</label>
+          <label>
+            <radio value="1" checked="{{form.payment==1}}" />全额付款</label>
+        </radio-group>
+      </view>
+      <view class="style_number" wx:if='{{form.payment==0}}'>
+        <view class="lable">订金</view>
+        <input type="digit" value="{{form.deposit}}" placeholder="订金" bindinput='get_deposit' />
+      </view>
+      <view class="style_number" wx:if='{{form.payment==1}}'>
+        <view class="lable">全额付款</view>
+        <view class="text">{{form.money}}</view>
+      </view>
+    </view>
+    <view class="border"></view>
+    <view class="no_form">
+      <view class="category">
+        <picker bindchange="bindAccount_nameSelect" value="{{account_name}}" range="{{account_select}}"
+          range-key='account_name'>
+          <view class="picker">
+            <text class="name" decode="{{true}}">结算账户</text>
+            <view class="con">
+              <view wx:if='{{!account_name}}' style="color: #808080;">
+                {{'结算账户'}}
+              </view>
+              <view wx:if='{{account_name}}'>
+                {{account_name}}
+              </view>
+              <view class="iconfont icon-icon-test3"></view>
+            </view>
+          </view>
+        </picker>
+      </view>
+      <view class="year">
+        <picker mode="date" value="{{form.finishTime}}" bindchange="bindDateChange">
+          <view class="picker">
+            <text class="name" decode="{{true}}">预计回料时间</text>
+            <view class="con">
+              <view wx:if='{{!form.finishTime}}' style="color: #808080;">
+                {{'选择日期'}}
+              </view>
+              <view wx:if='{{form.finishTime}}'>
+                {{form.finishTime}}
+              </view>
+              <view class="iconfont icon-icon-test3"></view>
+            </view>
+          </view>
+        </picker>
+      </view>
+      <view class="season">
+        <picker bindchange="bindWareSelect" value="{{ware_name}}" range="{{ware}}" range-key='storehouse_name'>
+          <view class="picker">
+            <text class="name">仓库</text>
+            <view class="con">
+              <view wx:if='{{!ware_name}}' style="color: #808080;">
+                {{'仓库'}}
+              </view>
+              <view wx:if='{{ware_name}}'>
+                {{ware_name}}
+              </view>
+              <view class="iconfont icon-icon-test3"></view>
+            </view>
+          </view>
+        </picker>
+      </view>
+    </view>
+  </view>
+</view>
+
+<view class="next_step" bindtap='affirm'>完成</view>
+
+<view class="we_cropper" wx:if='{{we_cropper_active}}'>
+  <view class="imgDisposeBlock">
+    <view class='imgDisposeArea'>
+      <template is="we-cropper" data="{{...cropperOpt}}" />
+    </view>
+    <view class='imgDisposeControlLine'>
+      <view class='editBtn closeBtn' bindtap="closeTap">取消</view>
+      <view class='editBtn editPerfectBtn' bindtap="getCropperImage">上传</view>
+    </view>
+  </view>
+</view>

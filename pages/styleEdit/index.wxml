@@ -1,0 +1,145 @@
+<import src="../../components/we-cropper/we-cropper" />
+
+<view class="we_cropper" wx:if='{{we_cropper_active}}'>
+  <view class="imgDisposeBlock">
+    <view class='imgDisposeArea'>
+      <template is="we-cropper" data="{{...cropperOpt}}" />
+    </view>
+    <view class='imgDisposeControlLine'>
+      <view class='editBtn closeBtn' bindtap="closeTap">取消</view>
+      <view class='editBtn editPerfectBtn' bindtap="getCropperImage">上传</view>
+    </view>
+  </view>
+</view>
+<view class="newStyle">
+  <view class="main">
+    <view class="textarea">
+      <textarea focus="{{focus}}" bindinput='get_designidea' value='{{designidea}}' placeholder="备注"
+        maxlength='1000'> </textarea>
+      <view>{{cursor||'0'}} / 1000</view>
+    </view>
+    <view class="images_upload">
+      <view class="images_upload_list" wx:for='{{images_upload_list}}' wx:key='*this'>
+        <image src="{{item.picurl}}" mode='widthFix' />
+        <view bindtap='image1_close' data-index="index" class="iconfont icon-close"></view>
+      </view>
+      <view class="image2" bindtap='image1'>
+        <view class="icon-increase iconfont"></view>
+      </view>
+    </view>
+    <view class="border"></view>
+    <view class="form">
+      <view class="style_number">
+        <text class="name" decode="{{true}}">款号</text>
+        <view>{{styleno}}</view>
+      </view>
+      <view class="designation" bindtap='go_select'>
+        <text class="name" decode="{{true}}">名称</text>
+        <view class="con">
+          <view>{{stylename}}</view>
+          <view class="iconfont icon-icon-test3"></view>
+        </view>
+      </view>
+      <view class="category">
+        <picker mode="multiSelector" bindchange="bindCategoryPickerChange"
+          bindcolumnchange="bindCategoryPickerColumnChange" value="{{style_typeIndex}}" range="{{style_typeList}}"
+          data-index="{{index}}">
+          <view class="picker">
+            <text class="name" decode="{{true}}">品类</text>
+            <view class="con">
+              <view wx:if='{{!style_type}}' style="color: #808080;">
+                {{'品类'}}
+              </view>
+              <view wx:if='{{style_type}}'>
+                {{style_type}}
+              </view>
+              <view class="iconfont icon-icon-test3"></view>
+            </view>
+          </view>
+        </picker>
+      </view>
+      <view class="year">
+        <picker bindchange="bindYearSelect" value="{{year}}" range="{{year_list}}" range-key='year'>
+          <view class="picker">
+            <text class="name" decode="{{true}}">年份</text>
+            <view class="con">
+              <view wx:if='{{!year}}' style="color: #808080;">
+                {{'年份'}}
+              </view>
+              <view wx:if='{{year}}'>
+                {{year}}
+              </view>
+              <view class="iconfont icon-icon-test3"></view>
+            </view>
+          </view>
+        </picker>
+      </view>
+      <view class="season">
+        <picker bindchange="bindSeasonSelect" value="{{season}}" range="{{season_list}}" range-key='season'>
+          <view class="picker">
+            <text class="name" decode="{{true}}">季节</text>
+            <view class="con">
+              <view wx:if='{{!season}}' style="color: #808080;">
+                {{'季节'}}
+              </view>
+              <view wx:if='{{season}}'>
+                {{season}}
+              </view>
+              <view class="iconfont icon-icon-test3"></view>
+            </view>
+          </view>
+        </picker>
+      </view>
+    </view>
+    <view class="border"></view>
+    <view class="no_form">
+      <view class="project">
+        <picker bindchange="bindProjectSelect" value="{{project_id}}" range="{{project_list}}" range-key='projectname'>
+          <view class="picker">
+            <text class="name" decode="{{true}}">项目</text>
+            <view class="con">
+              <view wx:if='{{!project}}' style="color: #808080;">
+                {{'项目'}}
+              </view>
+              <view wx:if='{{project}}'>
+                {{project}}
+              </view>
+              <view class="iconfont icon-icon-test3"></view>
+            </view>
+          </view>
+        </picker>
+      </view>
+      <view class="stylist">
+        <picker bindchange="bindStylistSelect" value="{{stylist}}" range="{{stylist_list}}" range-key='name'>
+          <view class="picker">
+            <view class="name">设计师</view>
+            <view class="con">
+              <view wx:if='{{!stylist}}' style="color: #808080;">
+                {{'指派设计师'}}
+              </view>
+              <view wx:if='{{stylist}}'>
+                {{stylist}}
+              </view>
+              <view class="iconfont icon-icon-test3"></view>
+            </view>
+          </view>
+        </picker>
+      </view>
+      <view class="assist" wx:if='{{level!=2}}' bindtap='go_assist'>
+        <view class="name">指派协助</view>
+        <view class="con">
+          <view wx:for='{{user_id_data_list}}' wx:key='id'>{{item.name}},</view>
+          <view class="iconfont icon-icon-test3"></view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+
+
+
+
+<view class="operation">
+  <view class="up_step" bindtap='next_del'>删除</view>
+  <view class="next_step" bindtap='next_step'>完成</view>
+</view>

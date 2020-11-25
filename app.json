@@ -1,0 +1,41 @@
+{
+  "pages": [      
+    "pages/homePage/index",
+    "pages/materialProcessAdd/index",
+    "pages/materialProcess_go/index",
+    "pages/work/index",
+    "pages/materialProcess/index",
+    "pages/supplierEntering/index",
+    "pages/supplier/index",
+    "pages/feed_back/index",
+    "pages/lining_status/index",
+    "pages/material_purchasing/index",
+    "pages/Material_process/index",
+    "pages/colorORmaterial/index",
+    "pages/exploitStatus/index",
+    "pages/projectAdd/index",
+    "pages/newAddStyle/index",
+    "pages/styleSearch/index",
+    "pages/newAdStyle/index", 
+    "pages/project/index",
+    "pages/styleEdit/index",
+    "pages/projectEdit/index",
+    "pages/projectDetails/index",
+    "pages/materialProcessEdit/index",
+    "pages/newStyle/index",
+    "pages/selectStyle/index",
+    "pages/login/index",
+    "pages/supplierEdit/index",
+    "pages/supplierView/index",
+    "pages/materialProcessView/index",
+    "pages/functionality/index",
+    "pages/mine/index"
+  ],
+  "window": {
+    "backgroundTextStyle": "dark",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTextStyle": "black"
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}

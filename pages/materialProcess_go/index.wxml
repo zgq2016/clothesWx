@@ -1,0 +1,33 @@
+<view>
+
+  <view class="main">
+    <view class="search_input">
+      <input bindinput='handleSearchInput' value="{{keyword}}" placeholder="搜索成分">
+      <icon class="icon-small" type="search" size="25"></icon>
+      </input>
+    </view>
+  </view>
+
+  <view class="main_list">
+    <view class="list" bindtap='add_ingredient' wx:if='{{goods_length==0&&goodsSearch_length==0}}'>
+      添加成分
+    </view>
+    <view>
+      <view wx:for='{{goods}}' wx:key='id'>
+        <view bindtap='nav_goods' class="list" data-item="{{item}}">
+          <view>{{item.material_name}}</view>
+        </view>
+      </view>
+    </view>
+
+    <view>
+      <view wx:for='{{goodsSearch}}' wx:key='id'>
+        <view bindtap='nav_goods' class="list" data-item="{{item}}">
+          <view>{{item.name}}</view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+
+</view>

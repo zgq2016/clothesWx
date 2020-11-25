@@ -1,0 +1,102 @@
+<tabBar></tabBar>
+<view wx:if="{{designStyle}}">
+  <view class="main">
+    <view class="search_input">
+      <input bindinput='handleSearchInput' value="{{styleno}}" placeholder="搜索款号">
+      <icon class="icon-small" type="search" size="25"></icon>
+      </input>
+      <view class="bianji" bindtap='switchover'>
+        <image src="../../static/cut.svg" wx:if='{{!switchover_active}}' />
+        <image src="../../static/cut1.svg" wx:if='{{switchover_active}}' />
+      </view>
+    </view>
+  </view>
+
+  <view wx:if="{{switchover_active}}">
+    <view class="style_list">
+      <view class="list" wx:for='{{goods}}' wx:key='id' bindtap='gostatus' data-item="{{item}}">
+        <view class="img">
+          <image mode='aspectFill' src="{{item.style_pic_url}}" />
+        </view>
+        <view class="con">
+          <view class="name">{{item.stylename}}</view>
+          <view class="username">
+            <view>{{item.style_type}}</view>
+            <view>{{item.username}}</view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="style_list">
+      <view class="list" wx:for='{{goodsSearch}}' wx:key='id' bindtap='gostatus' data-item="{{item}}">
+        <view class="img">
+          <image mode='aspectFill' src="{{item.style_pic_url}}" />
+        </view>
+        <view class="con">
+          <view class="name">{{item.stylename}}</view>
+          <view class="username">
+            <view>{{item.style_type}}</view>
+            <view>{{item.username}}</view>
+          </view>
+        </view>
+      </view>
+      <view class="list" wx:for='{{goods}}' wx:key='id' bindtap='gostatus' data-item="{{item}}">
+        <view class="img">
+          <image mode='aspectFill' src="{{item.style_pic_url}}" />
+        </view>
+        <view class="con">
+          <view class="name">{{item.stylename}}</view>
+          <view class="username">
+            <view>{{item.style_type}}</view>
+            <view>{{item.username}}</view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view wx:if="{{!switchover_active}}">
+    <view class="card_list">
+      <view class="list" wx:for='{{goods}}' wx:key='id' bindtap='gostatus' data-item="{{item}}">
+        <view class="listLeft">
+          <view class="listLeftImg">
+            <view class="image1">
+              <image src="{{item.style_pic_url}}" mode="widthFix" />
+            </view>
+            <view class="image2">
+              <image src="{{item.style_color_pic_url}}" mode="widthFix" />
+            </view>
+          </view>
+          <view class="listLeftInfo">
+            <view class="listLeftInfoName">{{item.stylename}}</view>
+            <view>{{item.styleno}}</view>
+            <view>{{item.style_type}}</view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="card_list">
+      <view class="list" wx:for='{{goodsSearch}}' wx:key='id' bindtap='gostatus' data-item="{{item}}">
+        <view class="listLeft">
+          <view class="listLeftImg">
+            <view class="image1">
+              <image src="{{item.style_pic_url}}" mode="widthFix" />
+            </view>
+            <view class="image2">
+              <image src="{{item.style_color_pic_url}}" mode="widthFix" />
+            </view>
+          </view>
+          <view class="listLeftInfo">
+            <view class="listLeftInfoName">{{item.stylename}}</view>
+            <view>{{item.styleno}}</view>
+            <view>{{item.style_type}}</view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="newProject" bindtap='newProject' wx:if="{{project_style_add}}">
+    <view class="icon-increase iconfont">
+    </view>
+  </view>
+</view>
+<!-- <text>功能正在开发中...</text> -->

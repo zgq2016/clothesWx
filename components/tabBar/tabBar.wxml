@@ -1,0 +1,21 @@
+<view class="tabBar">
+  <view class="index" bindtap='go_homePage'>首页</view>
+  <view class="work" bindtap='go_work'>工作</view>
+  <view class="scan" bindtap='release_tab'>
+    <image class="" src="../../static/ze-add.svg" />
+  </view>
+  <view class="functionality" bindtap='go_functionality'>功能</view>
+  <view class="mine" bindtap='go_mine'>我的</view>
+</view>
+<view class="tab {{show_active?'tabs_active':''}}">
+  <view class="tabs" animation="{{aniscale}}"> </view>
+</view>
+<view class="tab_item {{show_active?'tab_item_active':''}}">
+  <view wx:if='{{my_role!=2}}' bindtap='Ewm'>扫码</view>
+  <view wx:if='{{my_role==2||my_role==1}}' bindtap='go_style'>发布款式</view>
+  <view wx:if='{{my_role==2||my_role==1}}' bindtap='go_Material'>物料工艺卡</view>
+  <view wx:if='{{my_role==2||my_role==1}}' bindtap='go_supplier'>供应商</view>
+</view>
+<view class="tab_img {{show_active?'tab_img_active':''}}">
+  <image bindtap='release_tab' src="../../static/ze-add1.svg" animation="{{anirotate}}" />
+</view>

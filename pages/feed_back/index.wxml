@@ -1,0 +1,119 @@
+<import src="../../components/we-cropper/we-cropper" />
+
+<view class="we_cropper" wx:if='{{we_cropper_active}}'>
+  <view class="imgDisposeBlock">
+    <view class='imgDisposeArea'>
+      <template is="we-cropper" data="{{...cropperOpt}}" />
+    </view>
+    <view class='imgDisposeControlLine'>
+      <view class='editBtn closeBtn' bindtap="closeTap">取消</view>
+      <view class='editBtn editPerfectBtn' bindtap="getCropperImage">上传</view>
+    </view>
+  </view>
+</view>
+
+<view class="newStyle" wx:if='{{status==1}}'>
+  <view class="main">
+    <view class="images_upload">
+      <image bindtap='get_portion_picurl' wx:if='{{portion_form.picurl}}' src="{{portion_form.picurl}}" mode='center' />
+      <view bindtap='get_portion_picurl' wx:if='{{!portion_form.picurl}}' class="upload">
+        <image src="../../static/upload.svg" style="width: 60rpx;height: 60rpx;" />
+        <view>上传凭证</view>
+      </view>
+    </view>
+    <view class="form">
+      <view class="designation">
+        <text class="name">回料数量</text>
+        <input type="digit" value="{{portion_form.quantity}}" bindinput='get_portion_quantity' placeholder="回料数量"></input>
+      </view>
+      <view class="designation">
+        <text class="name">结算金额</text>
+        <input type="digit" value="{{portion_form.amount}}" bindinput='get_portion_amount' placeholder="结算金额"></input>
+      </view>
+      <view class="date">
+        <picker mode="date" value="{{date}}" bindchange="get_portion_date" name='date'>
+          <view class="picker">
+            <text class="name">部分回料时间</text>
+            <view class="con">
+              <view wx:if='{{!portion_form.returntime}}' style="color: #808080;">
+                {{'选择日期'}}
+              </view>
+              <view wx:if='{{portion_form.returntime}}'>
+                {{portion_form.returntime}}
+              </view>
+              <view class="iconfont icon-icon-test3"></view>
+            </view>
+          </view>
+        </picker>
+      </view>
+      <view class="designation">
+        <text class="name">结算金额</text>
+        <view>{{0}}</view>
+      </view>
+    </view>
+  </view>
+  <view class="next_step" bindtap='portion_form_step'>完成</view>
+</view>
+<view class="newStyle" wx:if='{{status==3}}'>
+  <view class="main">
+    <view class="images_upload">
+      <image bindtap='get_all_picurl' wx:if='{{all_form.picurl}}' src="{{all_form.picurl}}" mode='center' />
+      <view bindtap='get_all_picurl' wx:if='{{!all_form.picurl}}' class="upload">
+        <image src="../../static/upload.svg" style="width: 60rpx;height: 60rpx;" />
+        <view>上传凭证</view>
+      </view>
+    </view>
+    <view class="form">
+      <view class="designation">
+        <text class="name">采购量</text>
+        <view>{{quantity}}</view>
+      </view>
+      <view class="designation">
+        <text class="name">采购单价</text>
+        <view>{{price}}</view>
+      </view>
+      <view class="designation">
+        <text class="name">金额</text>
+        <view>{{totalprice}}</view>
+      </view>
+      <view class="designation">
+        <text class="name">已付</text>
+        <view>{{paid_money}}</view>
+      </view>
+      <view class="designation">
+        <text class="name">结算金额</text>
+        <input type="digit" value="{{all_form.amount}}" bindchange='get_all_amount' placeholder="结算金额"></input>
+      </view>
+    </view>
+  </view>
+  <view class="next_step" bindtap='all_form_step'>完成</view>
+</view>
+<view class="newStyle" wx:if='{{status==2}}'>
+  <view class="main">
+    <view class="textarea">
+      <textarea focus="{{focus}}" bindinput='get_delay_remarks' value='{{delay_form.remarks}}' placeholder="原因"
+        maxlength='1000'> </textarea>
+      <view>{{cursor||'0'}} / 1000</view>
+    </view>
+    <view class="border"></view>
+    <view class="form">
+      <view class="date">
+        <picker mode="date" value="{{date}}" bindchange="get_delay_date" name='date'>
+          <view class="picker">
+            <text class="name">延迟回料时间</text>
+            <view class="con">
+              <view wx:if='{{!delay_form.returntime}}' style="color: #808080;">
+                {{'选择日期'}}
+              </view>
+              <view wx:if='{{delay_form.returntime}}'>
+                {{delay_form.returntime}}
+              </view>
+              <view class="iconfont icon-icon-test3"></view>
+            </view>
+          </view>
+        </picker>
+      </view>
+    </view>
+  </view>
+  <view class="next_step" bindtap='delay_form_step'>完成</view>
+</view>

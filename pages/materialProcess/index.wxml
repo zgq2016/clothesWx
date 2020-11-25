@@ -1,0 +1,57 @@
+<tabBar></tabBar>
+<view wx:if='{{routeCard_list}}'>
+  <!-- <view class="search_input">
+    <input type="text" bindinput='handleSearchInput' value="{{keyword}}" placeholder="搜索关键字" />
+  </view> -->
+  <view class="main">
+    <view class="search_input">
+      <input bindinput='handleSearchInput' value="{{companyname}}" placeholder="搜索款号">
+      <icon class="icon-small" type="search" size="25"></icon>
+      </input>
+    </view>
+  </view>
+  <view class="main_list">
+    <view>
+      <view wx:for='{{goods}}' wx:key='id'>
+        <view bindtap='nav_goods' class="list" data-item="{{item}}">
+          <view class="list_left">
+            <view class="list_left_img">
+              <image src="{{item.materials_color_data[0].picurl}}" />
+            </view>
+            <view class="list_left_content">
+              <view class="list_left_content_name">{{item.materialsname}}</view>
+              <view>内部编号:{{item.materialsno}}</view>
+              <view>{{item.supplier_data[0].supplier_companyname}}</view>
+              <view>{{item.materials_mainclass_name}} ({{item.materials_class_name}})
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+
+    <view>
+      <view wx:for='{{goodsSearch}}' wx:key='id'>
+        <view bindtap='nav_goods' class="list" data-item="{{item}}">
+          <view class="list_left">
+            <view class="list_left_img">
+              <image src="{{item.materials_color_data[0].picurl}}" />
+            </view>
+            <view class="list_left_content">
+              <view class="list_left_content_name">{{item.materialsname}}</view>
+              <view>内部编号:{{item.materialsno}}</view>
+              <view>{{item.supplier_data[0].supplier_companyname}}</view>
+              <view>{{item.materials_mainclass_name}} ({{item.materials_class_name}})
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class="newProject" bindtap='newProject' wx:if='{{materials_add}}'>
+    <view class="icon-increase iconfont">
+    </view>
+  </view>
+</view>

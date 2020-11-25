@@ -1,0 +1,212 @@
+page {
+  margin-bottom: 200rpx;
+}
+.newStyle .main .textarea {
+  margin: 10rpx 40rpx;
+  position: relative;
+  height: 400rpx;
+  border-bottom: 1rpx solid #f2f2f2;
+}
+.newStyle .main .textarea textarea {
+  width: 670rpx;
+  height: 350rpx;
+  font-size: 30rpx;
+}
+.newStyle .main .textarea view {
+  height: 50rpx;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  color: #dfdfdf;
+}
+.newStyle .main .images_upload {
+  margin: 40rpx;
+}
+.newStyle .main .images_upload image {
+  width: 260rpx;
+  height: 260rpx;
+  border-radius: 10rpx;
+}
+.newStyle .main .images_upload .upload {
+  width: 260rpx;
+  height: 260rpx;
+  border-radius: 10rpx;
+  margin: 10rpx;
+  background-color: #ccc;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.newStyle .main .form {
+  margin: 10rpx 40rpx;
+  width: 670rpx;
+  font-size: 30rpx;
+}
+.newStyle .main .form .designation {
+  border-bottom: 1rpx solid #f2f2f2;
+  width: 670rpx;
+  height: 100rpx;
+  display: flex;
+  align-items: center;
+}
+.newStyle .main .form .designation text {
+  width: 200rpx;
+  height: 100rpx;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.newStyle .main .form .designation input {
+  flex: 1;
+  height: 100rpx;
+}
+.newStyle .main .form .designation view {
+  flex: 1;
+  height: 100rpx;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+.newStyle .main .form .date {
+  border-bottom: 1rpx solid #f2f2f2;
+  height: 100rpx;
+}
+.newStyle .main .form .icon-icon-test3 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  -webkit-transform: rotate(270deg);
+  transform: rotate(270deg);
+  color: #000;
+}
+.newStyle .main .form .picker {
+  width: 670rpx;
+  height: 100rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.newStyle .main .form .picker .name {
+  width: 200rpx;
+}
+.newStyle .main .form .picker .con {
+  display: flex;
+  align-items: center;
+}
+.newStyle .main .form .picker .con .placeholder {
+  margin-right: 10rpx;
+  color: #ccc;
+}
+.next_step {
+  width: 600rpx;
+  height: 80rpx;
+  background-color: #000;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 200rpx;
+  position: fixed;
+  bottom: 30rpx;
+  left: 50%;
+  transform: translate(-50%, 0);
+}
+.we_cropper {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 9999999;
+  /* 截图canvas放大 真机上不行*/
+  /* .cropper{
+    transform-origin: left top;
+    transform: scale(0.25);
+  } */
+}
+.we_cropper .imgDisposeBlock {
+  position: absolute;
+  z-index: 99;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  background: #000000;
+  overflow: hidden;
+}
+.we_cropper .imgDisposeArea {
+  width: 100vw;
+  height: 92vh;
+  overflow: hidden;
+}
+.we_cropper .imgDisposeControlLine {
+  width: 100vw;
+  height: 10vh;
+  display: flex;
+  justify-content: space-between;
+  margin: 0 10rpx;
+}
+.we_cropper .editBtn {
+  height: 60rpx;
+  font-size: 30rpx;
+  text-align: center;
+  line-height: 60rpx;
+  color: #fff;
+}
+.we_cropper .editBtn.closeBtn {
+  flex: 150rpx;
+}
+.we_cropper .editBtn.reelectBtn {
+  flex: 150rpx;
+}
+.we_cropper .editPerfectBtns {
+  flex: 150rpx;
+  height: 60rpx;
+  font-size: 30rpx;
+  text-align: center;
+  line-height: 60rpx;
+  color: #fff;
+}
+.we_cropper .editBtn.editPerfectBtn {
+  flex: 150rpx;
+}
+.we_cropper .finalCanvasClass {
+  position: absolute;
+  top: -600%;
+  left: 0;
+  z-index: 15;
+  transform-origin: left top;
+  transform: scale(0.25);
+}
+.we_cropper .letterCanvasClass {
+  position: absolute;
+  top: -9999rpx;
+  left: 0;
+  transform-origin: left top;
+  transform: scale(0.25);
+  z-index: -1;
+}
+.we_cropper .letterSrcClass {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.we_cropper .shadowBlock {
+  width: 100%;
+  height: 100%;
+  background: #f7f7f7;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 99;
+}
+.border {
+  padding: 0;
+  margin: 0;
+  width: 100vw;
+  border-top: 10px solid #ccc;
+}

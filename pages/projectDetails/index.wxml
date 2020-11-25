@@ -1,0 +1,86 @@
+<!-- tabBar -->
+<tabBar></tabBar>
+
+<view class="projectDetails" bindtouchstart='handleActiveHide'>
+  <view class="userInfo">
+    <view class="info">
+      <!-- <view class="info_img">
+        <image src="{{obj.picurl}}" mode='center' />
+      </view> -->
+      <!-- <view class="info_img" wx:if='{{!obj.picurl==""}}'>
+        <image bindtap='get_image_info' data-item="{{obj.picurl}}" src="{{obj.picurl}}" mode='widthFix' />
+      </view> -->
+      <view class="image1" wx:if='{{!obj.picurl==""}}'>
+        <image src="{{obj.picurl}}" mode="heightFix" />
+      </view>
+      <view class="info_img" wx:if='{{obj.picurl==""}}'>
+        <image wx:if="{{obj.projecttypename=='意向订单'}}" src="../../static/意向.jpg" mode='aspectFill' />
+        <image wx:if="{{obj.projecttypename=='阶段工作'}}" src="../../static/阶段.jpg" mode='aspectFill' />
+        <image wx:if="{{obj.projecttypename=='企划系列'}}" src="../../static/系列.jpg" mode='aspectFill' />
+      </view>
+      <view class="info_con">
+        <view class="projectname">项目名称：{{obj.projectname}}</view>
+        <view>客户：{{obj.customer_companyname}}</view>
+        <view>年份：{{obj.year}}</view>
+        <view>季节：{{obj.season}}</view>
+        <view class="require">要求：{{obj.detailed}}</view>
+      </view>
+    </view>
+    <view class="operate">
+      <view class="bianji" bindtap='go_projectEdit' wx:if='{{project_edit||project_del}}'>
+        <image src="../../static/bianji.svg" />
+      </view>
+      <view class="bianji" bindtap='solt_switchover'>
+        <image src="../../static/cut.svg" wx:if='{{!switchover_active}}' />
+        <image src="../../static/cut1.svg" wx:if='{{switchover_active}}' />
+      </view>
+    </view>
+  </view>
+</view>
+<view wx:if='{{get_project}}'>
+  <view class="style_list" wx:if='{{switchover_active}}'>
+    <view class="list" wx:for='{{obj.style_data}}' wx:key='id' bindtap='gostatus' data-item="{{item}}">
+      <view class="img">
+        <image mode='aspectFill' src="{{item.style_pic_url}}" />
+      </view>
+      <view class="con">
+        <view class="name">{{item.stylename}}</view>
+        <view class="username">
+          <view>{{item.style_type}}</view>
+          <view>{{item.user_name}}</view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="projectList" wx:if='{{!switchover_active}}'>
+    <view class="list" wx:for='{{obj.style_data}}' wx:key='id' bindtap='gostatus' data-item="{{item}}">
+      <view class="listLeft">
+        <view class="listLeftImg">
+          <view class="image1">
+            <image src="{{item.style_pic_url}}" mode="widthFix" />
+          </view>
+          <view class="image2">
+            <image src="{{item.style_color_pic_url}}" mode="widthFix" />
+          </view>
+        </view>
+        <view class="listLeftInfo">
+          <view class="listLeftInfoName">{{item.stylename}}</view>
+          <view>{{item.styleno}}</view>
+          <view>{{item.style_type}}</view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+
+
+
+
+<view class="newProject">
+  <view class="icon-increase iconfont" bindtap='handleActiveShow'>
+  </view>
+  <view class="newProjectShow" wx:if='{{active}}' bindtap='handleActiveHide'>
+    <view bindtap='styleSearch' wx:if='{{get_project_style_list}}'>添加款式</view>
+    <view bindtap='newAddStyle' wx:if='{{project_style_add}}'>新增款式</view>
+  </view>
+</view>

@@ -1,0 +1,41 @@
+<view class="search_input">
+  <input type="text" bindinput='handleSearchInput' value="{{keyword}}" placeholder="搜索关键字" />
+</view>
+
+<view class="main_list">
+  <view wx:if='goods!=[]'>
+    <view wx:for='{{goods}}' wx:key='id'>
+      <view bindtap='nav_goods' class="list" data-item="{{item}}">
+        <view class="list_left">
+          <view class="list_left_img">
+            <image src="{{item.style_pic_url}}" />
+          </view>
+          <view class="list_left_content">
+            <view class="list_left_content_name">{{item.stylename}}</view>
+            <view>{{item.style_type}}</view>
+            <view>{{item.year}}</view>
+            <view>{{item.season}}</view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view wx:else-if='goodsSearch!=[]'>
+    <view wx:for='{{goodsSearch}}' wx:key='id'>
+      <view bindtap='nav_goods' class="list" data-item="{{item}}">
+        <view class="list_left">
+          <view class="list_left_img">
+            <image src="{{item.style_pic_url}}" />
+          </view>
+          <view class="list_left_content">
+            <view class="list_left_content_name">{{item.stylename}}</view>
+            <view>{{item.style_type}}</view>
+            <view>{{item.year}}</view>
+            <view>{{item.season}}</view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

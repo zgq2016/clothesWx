@@ -1,0 +1,37 @@
+<view class="card_list">
+  <view wx:for='{{card}}' wx:key='id'>
+    <view class="card" wx:for='{{item.style_materials_data}}' wx:key='id' wx:for-item='item1' wx:for-index='index1'>
+      <view class="card_left">
+        <view class="img">
+          <image class="" src="{{item1.picurl}}" mode='aspectFill' />
+          <view>{{ item1.materials_mainclass_name_id }}</view>
+        </view>
+        <view class="con">
+          <view class="name">{{item1.materials_data[0].materialsname}}</view>
+          <view>内部编号: {{item1.materials_data[0].materialsno}}</view>
+          <view>{{item1.style_materials_supplier_data[0].companyname}}</view>
+          <view>{{item1.materials_mainclass_name}} ({{item1.materials_class_name}})</view>
+        </view>
+      </view>
+      <view class="card_right">
+        <picker bindchange="bindColorSelect" value="{{color}}" range="{{item1.materials_color_data}}" range-key='color'
+          data-item1="{{item1}}">
+          <view class="picker">
+            <view class="con">
+              <view>
+                <view>{{item1.color}}</view>
+                <view>{{item1.color_no}}</view>
+              </view>
+            </view>
+          </view>
+        </picker>
+        <checkbox-group bindchange="handleCartCheck" data-index="{{index}}">
+          <checkbox class="assist_list" checked="{{item1.isCheck}}"></checkbox>
+        </checkbox-group>
+      </view>
+    </view>
+  </view>
+</view>
+
+
+<view class="next_step" bindtap="next_step">完成</view>

@@ -1,0 +1,99 @@
+page {
+  margin-bottom: 200rpx;
+}
+.color {
+  margin: 10rpx;
+  color: #000;
+}
+.color picker .picker {
+  width: 300rpx;
+  height: 80rpx;
+  background-color: #ccc;
+  border-radius: 100rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 30rpx 0 30rpx;
+}
+.color picker .picker .iconfont {
+  font-size: 40rpx;
+}
+.card_list {
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.card_list .card {
+  width: 640rpx;
+  height: 200rpx;
+  display: flex;
+  margin: 10rpx 0;
+}
+.card_list .card .card_left {
+  flex: 1;
+  border-radius: 20rpx;
+  background-color: #ccc;
+  overflow: hidden;
+  display: flex;
+}
+.card_list .card .card_left .img {
+  position: relative;
+}
+.card_list .card .card_left .img image {
+  width: 200rpx;
+  height: 200rpx;
+}
+.card_list .card .card_left .img view {
+  width: 50rpx;
+  height: 50rpx;
+  border-radius: 50%;
+  background-color: #000;
+  color: #fff;
+  position: absolute;
+  left: 10rpx;
+  bottom: 10rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.card_list .card .card_left .con {
+  padding: 10rpx 30rpx 10rpx 20rpx;
+}
+.card_list .card .card_left .con .name {
+  font-size: 28rpx;
+}
+.card_list .card .card_left .con view {
+  font-size: 24rpx;
+  padding: 4rpx;
+}
+.card_list .card .card_right {
+  width: 100rpx;
+  border-radius: 20rpx;
+  background-color: #ccc;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+.card_list .card .card_right .picker {
+  width: 100rpx;
+  text-align: center;
+}
+.card_list .card .card_right .assist_list {
+  transform: scale(0.6, 0.6);
+}
+.next_step {
+  width: 600rpx;
+  height: 80rpx;
+  background-color: #000;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 200rpx;
+  position: fixed;
+  bottom: 30rpx;
+  left: 50%;
+  transform: translate(-50%, 0);
+}

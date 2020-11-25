@@ -1,0 +1,312 @@
+.newStyle {
+  margin-bottom: 200rpx;
+}
+.newStyle .main .textarea {
+  margin: 10rpx 40rpx;
+  position: relative;
+  height: 400rpx;
+}
+.newStyle .main .textarea textarea {
+  width: 670rpx;
+  height: 350rpx;
+}
+.newStyle .main .textarea view {
+  height: 50rpx;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  color: #dfdfdf;
+}
+.newStyle .main .images_upload {
+  margin: 10rpx 40rpx;
+  display: flex;
+  flex-wrap: wrap;
+}
+.newStyle .main .images_upload .images_upload_list {
+  display: flex;
+  flex-wrap: wrap;
+  position: relative;
+  width: 200rpx;
+  height: 200rpx;
+  border-radius: 10rpx;
+  margin: 10rpx;
+  overflow: hidden;
+}
+.newStyle .main .images_upload .images_upload_list image {
+  width: 200rpx;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translate(0, -50%);
+}
+.newStyle .main .images_upload .images_upload_list .icon-close {
+  width: 30rpx;
+  height: 30rpx;
+  font-size: 24rpx;
+  border: 1px solid #fff;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  position: absolute;
+  top: 20rpx;
+  right: 20rpx;
+}
+.newStyle .main .images_upload .image2 {
+  width: 200rpx;
+  height: 200rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10rpx;
+  border: 1px solid #ccc;
+  margin: 10rpx;
+}
+.newStyle .main .images_upload .image2 .icon-increase {
+  font-size: 40rpx;
+}
+.newStyle .main .no_form {
+  margin: 10rpx 40rpx;
+  width: 670rpx;
+  font-size: 30rpx;
+}
+.newStyle .main .no_form .icon-icon-test3 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  -webkit-transform: rotate(270deg);
+  transform: rotate(270deg);
+  color: #000;
+}
+.newStyle .main .no_form .picker {
+  width: 670rpx;
+  height: 100rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.newStyle .main .no_form .picker .name {
+  width: 130rpx;
+  margin-right: 30rpx;
+}
+.newStyle .main .no_form .picker .con {
+  display: flex;
+  align-items: center;
+}
+.newStyle .main .no_form .picker .con .placeholder {
+  margin-right: 10rpx;
+  color: #ccc;
+}
+.newStyle .main .no_form .project {
+  border-bottom: 1rpx solid #f2f2f2;
+  height: 100rpx;
+}
+.newStyle .main .no_form .stylist {
+  border-bottom: 1rpx solid #f2f2f2;
+  height: 100rpx;
+}
+.newStyle .main .no_form .assist {
+  border-bottom: 1rpx solid #f2f2f2;
+  width: 670rpx;
+  height: 100rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.newStyle .main .no_form .assist .con {
+  display: flex;
+  align-items: center;
+}
+.newStyle .main .form {
+  margin: 10rpx 40rpx;
+  width: 670rpx;
+  font-size: 30rpx;
+}
+.newStyle .main .form .icon-icon-test3 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  -webkit-transform: rotate(270deg);
+  transform: rotate(270deg);
+  color: #000;
+}
+.newStyle .main .form .picker {
+  width: 670rpx;
+  height: 100rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.newStyle .main .form .picker .name {
+  width: 130rpx;
+  margin-right: 30rpx;
+}
+.newStyle .main .form .picker .con {
+  display: flex;
+  align-items: center;
+}
+.newStyle .main .form .picker .con .placeholder {
+  margin-right: 10rpx;
+  color: #ccc;
+}
+.newStyle .main .form .style_number {
+  border-bottom: 1rpx solid #f2f2f2;
+  width: 670rpx;
+  height: 100rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.newStyle .main .form .designation {
+  border-bottom: 1rpx solid #f2f2f2;
+  width: 670rpx;
+  height: 100rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.newStyle .main .form .designation .con {
+  display: flex;
+  align-items: center;
+}
+.newStyle .main .form .category {
+  border-bottom: 1rpx solid #f2f2f2;
+  height: 100rpx;
+}
+.newStyle .main .form .year {
+  border-bottom: 1rpx solid #f2f2f2;
+  height: 100rpx;
+}
+.newStyle .main .form .season {
+  border-bottom: 1rpx solid #f2f2f2;
+  height: 100rpx;
+}
+.operation {
+  width: 600rpx;
+  height: 80rpx;
+  color: #fff;
+  position: fixed;
+  bottom: 30rpx;
+  left: 50%;
+  transform: translate(-50%, 0);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.operation .up_step {
+  width: 150rpx;
+  height: 80rpx;
+  background-color: #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 100rpx;
+}
+.operation .next_step {
+  width: 400rpx;
+  height: 80rpx;
+  background-color: #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 100rpx;
+}
+.we_cropper {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 9999999;
+  /* 截图canvas放大 真机上不行*/
+  /* .cropper{
+    transform-origin: left top;
+    transform: scale(0.25);
+  } */
+}
+.we_cropper .imgDisposeBlock {
+  position: absolute;
+  z-index: 99;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  background: #000000;
+  overflow: hidden;
+}
+.we_cropper .imgDisposeArea {
+  width: 100vw;
+  height: 92vh;
+  overflow: hidden;
+}
+.we_cropper .imgDisposeControlLine {
+  width: 100vw;
+  height: 10vh;
+  display: flex;
+  justify-content: space-between;
+  margin: 0 10rpx;
+}
+.we_cropper .editBtn {
+  height: 60rpx;
+  font-size: 30rpx;
+  text-align: center;
+  line-height: 60rpx;
+  color: #fff;
+}
+.we_cropper .editBtn.closeBtn {
+  flex: 150rpx;
+}
+.we_cropper .editBtn.reelectBtn {
+  flex: 150rpx;
+}
+.we_cropper .editPerfectBtns {
+  flex: 150rpx;
+  height: 60rpx;
+  font-size: 30rpx;
+  text-align: center;
+  line-height: 60rpx;
+  color: #fff;
+}
+.we_cropper .editBtn.editPerfectBtn {
+  flex: 150rpx;
+}
+.we_cropper .finalCanvasClass {
+  position: absolute;
+  top: -600%;
+  left: 0;
+  z-index: 15;
+  transform-origin: left top;
+  transform: scale(0.25);
+}
+.we_cropper .letterCanvasClass {
+  position: absolute;
+  top: -9999rpx;
+  left: 0;
+  transform-origin: left top;
+  transform: scale(0.25);
+  z-index: -1;
+}
+.we_cropper .letterSrcClass {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.we_cropper .shadowBlock {
+  width: 100%;
+  height: 100%;
+  background: #f7f7f7;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 99;
+}
+.border {
+  padding: 0;
+  margin: 0;
+  width: 100vw;
+  border-top: 10px solid #ccc;
+}

@@ -1,0 +1,77 @@
+.search_input {
+  width: 100%;
+  height: 100rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.search_input .input {
+  margin: 10rpx;
+  width: 300rpx;
+  height: 60rpx;
+  border-radius: 100rpx;
+  background-color: #ccc;
+  color: #000;
+  display: flex;
+  align-items: center;
+}
+.search_input .input input {
+  padding: 0 20rpx;
+}
+.search_input .materials {
+  margin: 10rpx;
+  width: 300rpx;
+  height: 60rpx;
+  border-radius: 100rpx;
+  background-color: #ccc;
+  color: #000;
+}
+.search_input .materials .picker {
+  width: 300rpx;
+  height: 60rpx;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+page {
+  margin-bottom: 200rpx;
+}
+.main_list .list {
+  display: flex;
+  justify-content: space-between;
+  height: 180rpx;
+  margin: 20rpx;
+}
+.main_list .list .list_left {
+  border-radius: 20rpx;
+  background-color: #ccc;
+  overflow: hidden;
+  flex: 1;
+  display: flex;
+}
+.main_list .list .list_left .list_left_img image {
+  width: 180rpx;
+  height: 180rpx;
+}
+.main_list .list .list_left .list_left_content .list_left_content_name {
+  font-size: 28rpx;
+  font-weight: 600;
+}
+.main_list .list .list_left .list_left_content view {
+  margin: 6rpx 20rpx;
+}
+.main_list .list .list_right {
+  width: 100rpx;
+  height: 180rpx;
+}
+.main_list .list .list_right .picker {
+  border-radius: 20rpx;
+  background-color: #ccc;
+  width: 100rpx;
+  height: 180rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}

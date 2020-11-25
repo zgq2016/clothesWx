@@ -1,0 +1,79 @@
+.search_input {
+  width: 100%;
+  height: 100rpx;
+  background-color: var(--themeColor);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.search_input input {
+  font-size: 32rpx;
+  padding: 0 20rpx;
+  background-color: #ccc;
+  border-radius: 5rpx;
+  color: #767676;
+  width: 700rpx;
+  height: 80rpx;
+}
+page {
+  margin-bottom: 200rpx;
+}
+.project {
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.project .list {
+  margin: 0 0 60rpx 0;
+}
+.project .list .img image {
+  width: 680rpx;
+  height: 374rpx;
+  border-radius: 20rpx;
+}
+.project .list .con .name {
+  font-size: 30rpx;
+  font-weight: 900;
+  margin: 10rpx 0;
+}
+.project .list .con .username {
+  display: flex;
+  font-size: 28rpx;
+  color: #c6c6c6;
+}
+.project .list .con .username view:nth-child(1) {
+  margin-right: 10rpx;
+}
+.newProject {
+  width: 100rpx;
+  height: 100rpx;
+  background-color: #000;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  right: 30rpx;
+  bottom: 110rpx;
+  color: #fff;
+}
+.newProject .iconfont {
+  font-size: 50rpx;
+  font-weight: 600;
+}
+.newProject .newProjectShow {
+  width: 100rpx;
+  height: 300rpx;
+  background-color: #000;
+  position: fixed;
+  right: 30rpx;
+  bottom: 110rpx;
+  border-radius: 100rpx;
+}
+.newProject .newProjectShow navigator {
+  height: 100rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

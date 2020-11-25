@@ -1,0 +1,52 @@
+<view class="main">
+  <view class="designation" wx:if='{{tab==1}}'>
+    <input value="{{designation}}" auto-focus bindchange='get_designation' placeholder="请输入名称" />
+    <view class="next_step" bindtap='next_step1'>确认</view>
+  </view>
+  <view class="assist_select" wx:if='{{tab==2}}'>
+    <view wx:for='{{user_id_data}}' wx:key='id'>
+      <checkbox-group bindchange='assist_select' data-index="{{index}}">
+        <view class="name">
+          {{item.name}}
+        </view>
+        <checkbox class="assist_list" checked="{{item.isCheck}}"></checkbox>
+      </checkbox-group>
+    </view>
+    <view class="next_step" bindtap='next_step2'>确认</view>
+  </view>
+  <view class="designation" wx:if='{{tab==3}}'>
+    <input value="{{project_name}}" auto-focus bindchange='get_project_name' placeholder="请输入项目名称" />
+    <view class="next_step" bindtap='next_step3'>确认</view>
+  </view>
+  <view class="designation" wx:if='{{tab==4}}'>
+    <input value="{{element}}" auto-focus bindchange='get_element' placeholder="请输入元素" />
+    <view class="next_step" bindtap='next_step4'>确认</view>
+  </view>
+  <view class="designation" wx:if='{{tab==5}}'>
+    <input value="{{color_no}}" auto-focus bindchange='get_color_no' placeholder="请输入色号" />
+    <view class="next_step" bindtap='next_step5'>确认</view>
+  </view>
+  <view class="designation" wx:if='{{tab==6}}'>
+    <input value="{{claim_num}}" auto-focus bindchange='get_claim_num' placeholder="请输入要求数量" />
+    <view class="next_step" bindtap='next_step6'>确认</view>
+  </view>
+  <view class="assist_select" wx:if='{{tab==7}}'>
+    <view wx:for='{{user_id_data7}}' wx:key='id'>
+      <checkbox-group bindchange='assist_select7' data-index="{{index}}">
+        <view class="name">
+          {{item.name}}
+        </view>
+        <checkbox class="assist_list" checked="{{item.isCheck}}"></checkbox>
+      </checkbox-group>
+    </view>
+    <view class="next_step" bindtap='next_step7'>确认</view>
+  </view>
+  <view class="assist_select" wx:if='{{tab==8}}'>
+    <view class="textarea">
+      <textarea focus="{{focus}}" bindinput='get_designidea' value='{{designidea}}' placeholder="详细要求"
+        maxlength='1000'> </textarea>
+      <view>{{cursor||'0'}} / 1000</view>
+    </view>
+    <view class="next_step" bindtap='next_step8'>确认</view>
+  </view>
+</view>

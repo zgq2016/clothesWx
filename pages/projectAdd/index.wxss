@@ -1,0 +1,309 @@
+.projectAdd .main .textarea {
+  margin: 10rpx 40rpx;
+  position: relative;
+  height: 400rpx;
+}
+.projectAdd .main .textarea textarea {
+  width: 670rpx;
+  height: 350rpx;
+}
+.projectAdd .main .textarea view {
+  height: 50rpx;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  color: #dfdfdf;
+}
+.projectAdd .main .images_upload {
+  margin: 10rpx 40rpx;
+  display: flex;
+  flex-wrap: wrap;
+}
+.projectAdd .main .images_upload .images_upload_list {
+  display: flex;
+  flex-wrap: wrap;
+  position: relative;
+  width: 200rpx;
+  height: 200rpx;
+  border-radius: 10rpx;
+  margin: 10rpx;
+  overflow: hidden;
+}
+.projectAdd .main .images_upload .images_upload_list image {
+  height: 200rpx;
+  position: absolute;
+  left: 50%;
+  top: 0;
+  transform: translate(-50%, 0);
+}
+.projectAdd .main .images_upload .images_upload_list .icon-close {
+  width: 30rpx;
+  height: 30rpx;
+  font-size: 24rpx;
+  border: 1px solid #fff;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  position: absolute;
+  top: 20rpx;
+  right: 20rpx;
+}
+.projectAdd .main .images_upload .image2 {
+  width: 200rpx;
+  height: 200rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: #ccc;
+  border-radius: 10rpx;
+  margin: 10rpx;
+}
+.projectAdd .main .images_upload .image2 .icon-increase {
+  font-size: 40rpx;
+}
+.projectAdd .main .no_form {
+  margin: 10rpx 40rpx;
+  width: 670rpx;
+  font-size: 30rpx;
+}
+.projectAdd .main .no_form .icon-icon-test3 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  -webkit-transform: rotate(270deg);
+  transform: rotate(270deg);
+  color: #000;
+}
+.projectAdd .main .no_form .picker {
+  width: 670rpx;
+  height: 100rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.projectAdd .main .no_form .picker .name {
+  width: 130rpx;
+  margin-right: 30rpx;
+}
+.projectAdd .main .no_form .picker .con {
+  display: flex;
+  align-items: center;
+}
+.projectAdd .main .no_form .picker .con .placeholder {
+  margin-right: 10rpx;
+  color: #ccc;
+}
+.projectAdd .main .no_form .project {
+  border-bottom: 1rpx solid #f2f2f2;
+  height: 100rpx;
+}
+.projectAdd .main .no_form .designation {
+  border-bottom: 1rpx solid #f2f2f2;
+  width: 670rpx;
+  height: 100rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.projectAdd .main .no_form .designation .con {
+  display: flex;
+  align-items: center;
+}
+.projectAdd .main .no_form .stylist {
+  border-bottom: 1rpx solid #f2f2f2;
+  height: 100rpx;
+}
+.projectAdd .main .no_form .assist {
+  border-bottom: 1rpx solid #f2f2f2;
+  width: 670rpx;
+  height: 100rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.projectAdd .main .no_form .assist .con {
+  display: flex;
+  align-items: center;
+}
+.projectAdd .main .form {
+  margin: 10rpx 40rpx;
+  width: 670rpx;
+  font-size: 30rpx;
+}
+.projectAdd .main .form .icon-icon-test3 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  -webkit-transform: rotate(270deg);
+  transform: rotate(270deg);
+  color: #000;
+}
+.projectAdd .main .form .picker {
+  width: 670rpx;
+  height: 100rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.projectAdd .main .form .picker .name {
+  width: 130rpx;
+  margin-right: 30rpx;
+}
+.projectAdd .main .form .picker .con {
+  display: flex;
+  align-items: center;
+}
+.projectAdd .main .form .picker .con .placeholder {
+  margin-right: 10rpx;
+  color: #ccc;
+}
+.projectAdd .main .form .style_number {
+  border-bottom: 1rpx solid #f2f2f2;
+  width: 670rpx;
+  height: 100rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.projectAdd .main .form .designation {
+  border-bottom: 1rpx solid #f2f2f2;
+  width: 670rpx;
+  height: 100rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.projectAdd .main .form .designation .con {
+  display: flex;
+  align-items: center;
+}
+.projectAdd .main .form .category {
+  border-bottom: 1rpx solid #f2f2f2;
+  height: 100rpx;
+}
+.projectAdd .main .form .year {
+  border-bottom: 1rpx solid #f2f2f2;
+  height: 100rpx;
+}
+.projectAdd .main .form .season {
+  border-bottom: 1rpx solid #f2f2f2;
+  height: 100rpx;
+}
+.we_cropper {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 9999999;
+  /* 截图canvas放大 真机上不行*/
+  /* .cropper{
+    transform-origin: left top;
+    transform: scale(0.25);
+  } */
+}
+.we_cropper .imgDisposeBlock {
+  position: absolute;
+  z-index: 99;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  background: #000000;
+  overflow: hidden;
+}
+.we_cropper .imgDisposeArea {
+  width: 100vw;
+  height: 92vh;
+  overflow: hidden;
+}
+.we_cropper .imgDisposeControlLine {
+  width: 100vw;
+  height: 10vh;
+  display: flex;
+  justify-content: space-between;
+  margin: 0 10rpx;
+}
+.we_cropper .editBtn {
+  height: 60rpx;
+  font-size: 30rpx;
+  text-align: center;
+  line-height: 60rpx;
+  color: #fff;
+}
+.we_cropper .editBtn.closeBtn {
+  flex: 150rpx;
+}
+.we_cropper .editBtn.reelectBtn {
+  flex: 150rpx;
+}
+.we_cropper .editPerfectBtns {
+  flex: 150rpx;
+  height: 60rpx;
+  font-size: 30rpx;
+  text-align: center;
+  line-height: 60rpx;
+  color: #fff;
+}
+.we_cropper .editBtn.editPerfectBtn {
+  flex: 150rpx;
+}
+.we_cropper .finalCanvasClass {
+  position: absolute;
+  top: -600%;
+  left: 0;
+  z-index: 15;
+  transform-origin: left top;
+  transform: scale(0.25);
+}
+.we_cropper .letterCanvasClass {
+  position: absolute;
+  top: -9999rpx;
+  left: 0;
+  transform-origin: left top;
+  transform: scale(0.25);
+  z-index: -1;
+}
+.we_cropper .letterSrcClass {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.we_cropper .shadowBlock {
+  width: 100%;
+  height: 100%;
+  background: #f7f7f7;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 99;
+}
+.border {
+  padding: 0;
+  margin: 0;
+  width: 100vw;
+  border-top: 10px solid #ccc;
+}
+.next_step {
+  width: 600rpx;
+  height: 80rpx;
+  background-color: #000;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 200rpx;
+  position: fixed;
+  bottom: 30rpx;
+  left: 50%;
+  transform: translate(-50%, 0);
+}
+page {
+  margin-bottom: 200rpx;
+}

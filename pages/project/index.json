@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "tabBar": "../../components/tabBar/tabBar"
+  },
+  "navigationBarTitleText": "项目",
+  "enablePullDownRefresh": true
+}

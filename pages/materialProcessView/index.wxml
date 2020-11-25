@@ -1,0 +1,82 @@
+<view class="bannerImg">
+  <image src="{{obj.color_data[0].picurl}}" />
+</view>
+
+<view class="main">
+    <view class="bianji" bindtap='nav_goods' wx:if='{{materials_edit}}'>
+    <image src="../../static/bianji.svg" />
+  </view>
+  <view class="main_title">{{obj.materials_supplier_data[0].supplier_companyname}}</view>
+  <view class="main_content">
+    <view class="user">
+      <view class="userInfo">
+        <view>编号</view>
+        <view>{{obj.materialsno}}</view>
+      </view>
+      <view class="userInfo">
+        <view>面料名称</view>
+        <view>{{obj.materialsname}}</view>
+      </view>
+      <view class="userInfo">
+        <view>分类</view>
+        <view>{{obj.materials_mainclass_name}}</view>
+      </view>
+      <view class="userInfo">
+        <view>物料小分类</view>
+        <view>{{obj.materials_mainclass_name}}</view>
+      </view>
+      <view wx:for='{{obj.material_data}}' wx:key='id'>
+        <view class="userInfo">
+          <view>面料</view>
+          <view>{{item.material_name}}</view>
+        </view>
+        <view class="userInfo">
+          <view>面料成分</view>
+          <view>{{item.content}}</view>
+        </view>
+      </view>
+      <view class="userInfo">
+        <view>计量单位</view>
+        <view>{{obj.unit}}</view>
+      </view>
+      <view class="userInfo">
+        <view>大货量单位</view>
+        <view>{{obj.wsale_price}}</view>
+      </view>
+
+      <view wx:for='{{obj.color_data}}' wx:key='id'>
+        <view class="userInfo">
+          <view>颜色</view>
+          <view>{{item.color}}</view>
+        </view>
+        <view class="userInfo">
+          <view>颜色</view>
+          <view>{{item.color_no}}</view>
+        </view>
+        <view class="userInfo">
+          <view>图片</view>
+          <view>
+            <image class="" src="{{item.picurl}}" />
+          </view>
+        </view>
+      </view>
+
+      <view class="userInfo">
+        <view>是否有货</view>
+        <view wx:if='{{obj.instock==="1"}}'>是</view>
+        <view wx:if='{{obj.instock==="0"}}'>否</view>
+      </view>
+      <view class="userInfo">
+        <view>完成时间</view>
+        <view>{{obj.arrival_time}}</view>
+      </view>
+      <view class="userInfo">
+        <view>备注</view>
+        <view>{{obj.remarks}}</view>
+      </view>
+    </view>
+  </view>
+  <button type="warn" bindtap='handle_materials_del'>
+    删除
+  </button>
+</view>

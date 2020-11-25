@@ -1,0 +1,2 @@
+<tabBar></tabBar>
+<view class="logout" bindtap='logout'>退出</view>

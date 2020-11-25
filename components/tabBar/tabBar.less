@@ -1,0 +1,125 @@
+@import "../../styles/iconfont.wxss";
+
+.tabBar {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100vw;
+  height: 100rpx;
+  background-color: #fff;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  color: #000;
+  border-top: 0.01rem solid #f1f1f1;
+  z-index: 999;
+
+  .index {
+    flex: 1;
+    height: 100rpx;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .work {
+    flex: 1;
+    height: 100rpx;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .scan {
+    flex: 1;
+    height: 100rpx;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    image {
+      width: 60rpx;
+      height: 60rpx;
+    }
+  }
+
+  .functionality {
+    flex: 1;
+    height: 100rpx;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .mine {
+    flex: 1;
+    height: 100rpx;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+.tab {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100vw;
+  height: 100rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .tabs {
+    width: 60rpx;
+    height: 60rpx;
+    background-color: #000;
+    border-radius: 50%;
+  }
+}
+.tabs_active {
+  // background-color: #000;
+  color: #fff;
+  z-index: 1000;
+}
+
+.tab_item {
+  color: #fff;
+  opacity: 0;
+  position: fixed;
+  z-index: 1002;
+  left: 0;
+  bottom: 0;
+  width: 100vw;
+  height: 0rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  transition: all 0.3s;
+  background-color: #000;
+  font-size: 36rpx;
+}
+
+.tab_item_active {
+  height: 400rpx;
+  opacity: 1;
+  bottom: 200rpx;
+}
+
+.tab_img {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 100rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1001;
+  image {
+    width: 60rpx;
+    height: 60rpx;
+    background-color: #000;
+    border-radius: 50%;
+  }
+}
+.tab_img_active {
+  width: 100vw;
+}

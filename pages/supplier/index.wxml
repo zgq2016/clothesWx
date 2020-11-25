@@ -1,0 +1,59 @@
+<tabBar></tabBar>
+<view wx:if='{{distributor_list}}'>
+  <!-- <view class="search_input">
+    <input type="text" bindinput='handleSearchInput' value="{{companyname}}" placeholder="搜索关键字" />
+  </view> -->
+  <view class="main">
+    <view class="search_input">
+      <input bindinput='handleSearchInput' value="{{companyname}}" placeholder="搜索款号">
+      <icon class="icon-small" type="search" size="25"></icon>
+      </input>
+    </view>
+  </view>
+  <view class="main_list">
+    <view>
+      <view wx:for='{{goods}}' wx:key='id'>
+        <view bindtap='nav_goods' class="list" data-item="{{item}}">
+          <view class="list_left">
+            <view class="list_left_img">
+              <image
+                src="{{item.cardpicurl||'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1565147328&di=3438dbd9e03b9c4abfbd3113abfbc445&imgtype=jpg&er=1&src=http%3A%2F%2Fwww.tucaod.com%2Fwp-content%2Fuploads%2F2017%2F12%2F404huyazhibo.jpg'}}" />
+            </view>
+            <view class="list_left_content">
+              <view class="list_left_content_name">{{item.companyname}}</view>
+              <view>{{item.materials_class_name}}</view>
+              <view wx:if="{{item.supplier_contact_data.length>0}}">{{item.supplier_contact_data[0].contacts}} :
+                ({{item.supplier_contact_data[0].phone}})</view>
+            </view>
+          </view>
+          <view class="list_right">101</view>
+        </view>
+      </view>
+    </view>
+
+    <view>
+      <view wx:for='{{goodsSearch}}' wx:key='id'>
+        <view bindtap='nav_goods' class="list" data-item="{{item}}">
+          <view class="list_left">
+            <view class="list_left_img">
+              <image
+                src="{{item.cardpicurl||'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1565147328&di=3438dbd9e03b9c4abfbd3113abfbc445&imgtype=jpg&er=1&src=http%3A%2F%2Fwww.tucaod.com%2Fwp-content%2Fuploads%2F2017%2F12%2F404huyazhibo.jpg'}}" />
+            </view>
+            <view class="list_left_content">
+              <view class="list_left_content_name">{{item.companyname}}</view>
+              <view>{{item.materials_class_name}}</view>
+              <view wx:if="{{item.supplier_contact_data.length>0}}">{{item.supplier_contact_data[0].contacts}} :
+                ({{item.supplier_contact_data[0].phone}})</view>
+            </view>
+          </view>
+          <view class="list_right">101</view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class="newProject" bindtap='newProject' wx:if='{{supplier_add}}'>
+    <view class="icon-increase iconfont">
+    </view>
+  </view>
+</view>

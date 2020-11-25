@@ -1,0 +1,51 @@
+.functionality {
+  display: flex;
+}
+.functionality .supplier {
+  width: 25vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.functionality .supplier .supplier_img {
+  width: 100rpx;
+  height: 100rpx;
+  background-color: #000;
+  border-radius: 50%;
+}
+.functionality .supplier .supplier_con {
+  margin-top: 10rpx;
+}
+.functionality .materialProcess {
+  width: 25vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.functionality .materialProcess .materialProcess_img {
+  width: 100rpx;
+  height: 100rpx;
+  background-color: #000;
+  border-radius: 50%;
+}
+.functionality .materialProcess .materialProcess_con {
+  margin-top: 10rpx;
+}
+.functionality .project {
+  width: 25vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.functionality .project .project_img {
+  width: 100rpx;
+  height: 100rpx;
+  background-color: #000;
+  border-radius: 50%;
+}
+.functionality .project .project_con {
+  margin-top: 10rpx;
+}

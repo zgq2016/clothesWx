@@ -1,0 +1,94 @@
+<view class="search_input">
+  <view class="input">
+    <input type="text" bindinput='handleSearchInput' value="{{keyword}}" placeholder="搜索关键字" />
+  </view>
+  <view class="materials">
+    <picker bindchange="bindMaterialsSelect" value="{{materials}}" range="{{cardList}}" range-key='materialsCard'>
+      <view class="picker">
+        <view class="con">
+          <view wx:if='{{!materials}}' style="color: #808080;">
+            {{'物料工艺卡'}}
+          </view>
+          <view wx:if='{{materials}}'>
+            {{materials}}
+          </view>
+        </view>
+        <view class="iconfont icon-icon-test3"></view>
+      </view>
+    </picker>
+  </view>
+</view>
+
+<view class="main_list">
+  <view>
+    <view wx:for='{{goods}}' wx:key='id'>
+      <view class="list">
+        <view class="list_left" bindtap='handle_Material' data-item="{{item}}">
+          <view class="list_left_img">
+            <image src="{{item.materials_color_data[0].picurl}}" />
+          </view>
+          <view class="list_left_content">
+            <view class="list_left_content_name">{{item.materialsname}}</view>
+            <view>内部编号:{{item.materialsno}}</view>
+            <view>{{item.supplier_data[0].supplier_companyname}}</view>
+            <view>{{item.materials_mainclass_name}} ({{item.materials_class_name}})
+            </view>
+          </view>
+        </view>
+        <view class="list_right">
+          <picker bindchange="bindColorSelect" value="{{color}}" range="{{item.materials_color_data}}"
+            range-key='color' data-index="{{index}}">
+            <view class="picker">
+              <view class="con">
+                <view wx:if='{{!item.color}}'>
+                  <view>{{item.materials_color_data[0].color}}</view>
+                  <view>{{item.materials_color_data[0].color_no}}</view>
+                </view>
+                <view wx:if='{{item.color}}'>
+                  <view>{{item.color}}</view>
+                  <view>{{item.color_no}}</view>
+                </view>
+              </view>
+            </view>
+          </picker>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view>
+    <view wx:for='{{goodsSearch}}' wx:key='id'>
+      <view class="list">
+        <view class="list_left" bindtap='handle_Material' data-item="{{item}}">
+          <view class="list_left_img">
+            <image src="{{item.materials_color_data[0].picurl}}" />
+          </view>
+          <view class="list_left_content">
+            <view class="list_left_content_name">{{item.materialsname}}</view>
+            <view>内部编号:{{item.materialsno}}</view>
+            <view>{{item.supplier_data[0].supplier_companyname}}</view>
+            <view>{{item.materials_mainclass_name}} ({{item.materials_class_name}})
+            </view>
+          </view>
+        </view>
+        <view class="list_right">
+          <picker bindchange="bindColorSelect" value="{{color}}" range="{{item.materials_color_data}}"
+            range-key='color' data-index="{{index}}">
+            <view class="picker">
+              <view class="con">
+                <view wx:if='{{!item.color}}'>
+                  <view>{{item.materials_color_data[0].color}}</view>
+                  <view>{{item.materials_color_data[0].color_no}}</view>
+                </view>
+                <view wx:if='{{item.color}}'>
+                  <view>{{item.color}}</view>
+                  <view>{{item.color_no}}</view>
+                </view>
+              </view>
+            </view>
+          </picker>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

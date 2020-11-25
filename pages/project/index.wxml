@@ -1,0 +1,60 @@
+<tabBar></tabBar>
+<view wx:if='{{itemDesign}}'>
+  <view class="search_input">
+    <input type="text" bindinput='handleSearchInput' value="{{companyname}}" placeholder="搜索关键字" />
+  </view>
+  <view wx:if='{{get_project_list}}'>
+    <view class="project" wx:for='{{goods}}' wx:key='id' bindtap='go_project' data-item="{{item}}">
+      <view class="list">
+        <view class="img">
+          <image mode='aspectFill' src="{{item.picurl}}" />
+        </view>
+        <view class="con">
+          <view class="name">{{item.projectname}}</view>
+          <view class="username">
+            <view>{{item.user_name}}</view>
+            <view>[ {{item.projecttypename}} ]</view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view wx:if='{{get_project_list}}'>
+    <view class="project" wx:for='{{goodsSearch}}' wx:key='id' bindtap='go_project' data-item="{{item}}">
+      <view class="list">
+        <view class="img" wx:if='{{!item.picurl==""}}'>
+          <image src="{{item.picurl}}" mode='aspectFill' />
+        </view>
+        <view class="img" wx:if='{{item.picurl==""}}'>
+          <image wx:if="{{item.projecttypename=='意向订单'}}" src="../../static/意向.jpg" mode='aspectFill' />
+          <image wx:if="{{item.projecttypename=='阶段工作'}}" src="../../static/阶段.jpg" mode='aspectFill' />
+          <image wx:if="{{item.projecttypename=='企划系列'}}" src="../../static/系列.jpg" mode='aspectFill' />
+        </view>
+
+        <view class="con">
+          <view class="name">{{item.projectname}}</view>
+          <view class="username">
+            <view>{{item.user_name}}</view>
+            <view>[ {{item.projecttypename}} ]</view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="newProject" wx:if='{{project_add}}'>
+    <view class="icon-increase iconfont" bindtap='handleActiveShow'>
+    </view>
+    <view class="newProjectShow" wx:if='{{active}}' bindtap='handleActiveHide'>
+      <navigator url="/pages/projectAdd/index?projecttype={{0}}" bindtap='handleActiveHide'>
+        意向
+      </navigator>
+      <navigator url="/pages/projectAdd/index?projecttype={{1}}" bindtap='handleActiveHide'>
+        阶段
+      </navigator>
+      <navigator url="/pages/projectAdd/index?projecttype={{2}}" bindtap='handleActiveHide'>
+        企划
+      </navigator>
+    </view>
+  </view>
+</view>

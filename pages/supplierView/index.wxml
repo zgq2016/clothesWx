@@ -1,0 +1,67 @@
+<view class="bannerImg">
+  <image src="{{obj.cardpicurl}}" />
+</view>
+
+<view class="main">
+  <view class="bianji" bindtap='nav_goods' wx:if='{{editSupplier}}'>
+    <image src="../../static/bianji.svg" />
+  </view>
+  <view class="main_title">{{obj.companyname}}</view>
+  <view class="main_content">
+    <view class="user">
+      <view wx:for='{{obj.contact_data}}' wx:key='id' class="users">
+        <view class="userInfo">
+          <view>联系人{{index+1}}</view>
+          <view>{{item.contacts}}</view>
+        </view>
+        <view class="userInfo">
+          <view>手机号码</view>
+          <view>{{item.mobile}}</view>
+        </view>
+        <view class="userInfo">
+          <view>电话号码</view>
+          <view>{{item.phone}}</view>
+        </view>
+      </view>
+      <view class="address">
+        <view>详细地址</view>
+        <view>{{obj.address}}</view>
+      </view>
+    </view>
+    <view class="details">
+      <view class="accountInformation">账号信息</view>
+      <view class="userInfo">
+        <view>税点</view>
+        <view>{{obj.tax}}</view>
+      </view>
+      <view class="userInfo">
+        <view>是否开发票</view>
+        <view wx:if='{{obj.isbill==="0"}}'>不开</view>
+        <view wx:if='{{obj.isbill==="1"}}'>开</view>
+      </view>
+      <view class="userInfo">
+        <view>面料统计</view>
+        <view>xxx</view>
+      </view>
+      <view class="userInfo">
+        <view>成交笔数</view>
+        <view>xxx</view>
+      </view>
+      <view class="userInfo">
+        <view>修改人</view>
+        <view>xxx</view>
+      </view>
+      <view class="userInfo">
+        <view>修改时间</view>
+        <view>{{obj.ctime}}</view>
+      </view>
+      <view class="userInfo">
+        <view>备注</view>
+        <view>{{obj.remarks}}</view>
+      </view>
+    </view>
+  </view>
+  <button type="warn" bindtap='handle_supplier_del'>
+    删除
+  </button>
+</view>

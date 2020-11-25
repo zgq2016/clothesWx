@@ -1,0 +1,135 @@
+{
+  "description": "项目配置文件",
+  "packOptions": {
+    "ignore": []
+  },
+  "setting": {
+    "urlCheck": true,
+    "es6": true,
+    "enhance": true,
+    "postcss": true,
+    "preloadBackgroundData": false,
+    "minified": true,
+    "newFeature": true,
+    "coverView": true,
+    "nodeModules": true,
+    "autoAudits": false,
+    "showShadowRootInWxmlPanel": true,
+    "scopeDataCheck": false,
+    "uglifyFileName": false,
+    "checkInvalidKey": true,
+    "checkSiteMap": true,
+    "uploadWithSourceMap": true,
+    "compileHotReLoad": false,
+    "useMultiFrameRuntime": false,
+    "useApiHook": true,
+    "babelSetting": {
+      "ignore": [],
+      "disablePlugins": [],
+      "outputPath": ""
+    },
+    "useIsolateContext": true,
+    "useCompilerModule": true,
+    "userConfirmedUseCompilerModuleSwitch": false,
+    "packNpmManually": false,
+    "packNpmRelationList": [],
+    "minifyWXSS": true
+  },
+  "compileType": "miniprogram",
+  "libVersion": "2.12.2",
+  "appid": "wx5d4249c14934b4c8",
+  "projectname": "clothesWx",
+  "debugOptions": {
+    "hidedInDevtools": []
+  },
+  "isGameTourist": false,
+  "simulatorType": "wechat",
+  "simulatorPluginLibVersion": {},
+  "condition": {
+    "plugin": {
+      "list": []
+    },
+    "game": {
+      "list": []
+    },
+    "gamePlugin": {
+      "list": []
+    },
+    "miniprogram": {
+      "list": [
+        {
+          "name": "物料编辑",
+          "pathName": "pages/materialProcessEdit/index",
+          "query": "id=217",
+          "scene": null
+        },
+        {
+          "name": "款式编辑",
+          "pathName": "pages/styleEdit/index",
+          "query": "id=133",
+          "scene": null
+        },
+        {
+          "name": "项目详情",
+          "pathName": "pages/projectDetails/index",
+          "query": "id=16",
+          "scene": null
+        },
+        {
+          "name": "项目",
+          "pathName": "pages/project/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "项目编辑",
+          "pathName": "pages/projectEdit/index",
+          "query": "id=17",
+          "scene": null
+        },
+        {
+          "name": "添加款式",
+          "pathName": "pages/newAddStyle/index",
+          "query": "id=17",
+          "scene": null
+        },
+        {
+          "name": "设计研发",
+          "pathName": "pages/exploitStatus/index",
+          "query": "id=114",
+          "scene": null
+        },
+        {
+          "name": "新增物料",
+          "pathName": "pages/Material_process/index",
+          "query": "id=146",
+          "scene": null
+        },
+        {
+          "name": "版料采购",
+          "pathName": "pages/material_purchasing/index",
+          "query": "materials_id=175",
+          "scene": null
+        },
+        {
+          "name": "回料",
+          "pathName": "pages/feed_back/index",
+          "query": "id=140=&style_id=174",
+          "scene": null
+        },
+        {
+          "name": "添加供应商",
+          "pathName": "pages/supplierEntering/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "成分",
+          "pathName": "pages/materialProcess_go/index",
+          "query": "id=217&index=0&type=edit",
+          "scene": null
+        }
+      ]
+    }
+  }
+}

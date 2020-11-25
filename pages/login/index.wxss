@@ -1,0 +1,55 @@
+.login {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.login .main .title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 50rpx;
+  margin: 140rpx 0;
+}
+.login .main form {
+  background-color: #eee;
+}
+.login .main form .firmName {
+  display: flex;
+  align-items: center;
+  width: 600rpx;
+  height: 110rpx;
+  background-color: #f5f5f5;
+  border-radius: 100rpx;
+  margin: 50rpx;
+}
+.login .main form .firmName label {
+  width: 110rpx;
+  height: 110rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 30rpx;
+  padding-left: 30rpx;
+}
+.login .main form .firmName view {
+  padding: 10rpx 0;
+}
+.login .main form .firmName input {
+  flex: 1;
+  margin-left: 20rpx;
+  height: 110rpx;
+  font-size: 30rpx;
+}
+.login .main form button {
+  margin: 200rpx auto;
+  width: 600rpx;
+  height: 110rpx;
+  background-color: #000;
+  border-radius: 100rpx;
+  font-size: 40rpx;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 400;
+}
