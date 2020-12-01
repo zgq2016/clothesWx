@@ -1,6 +1,7 @@
 {
   "pages": [      
     "pages/homePage/index",
+    "pages/designFile/index",
     "pages/materialProcessAdd/index",
     "pages/materialProcess_go/index",
     "pages/work/index",

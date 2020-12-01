@@ -53,7 +53,7 @@ Page({
           });
           wx.showToast({
             title: res.data.msg,
-            success: (result) => {},
+            icon: 'none',
           });
           if (res.data.error_code === 0) {
             navigateTo(`/pages/supplier/index`);

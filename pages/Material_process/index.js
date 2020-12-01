@@ -75,7 +75,7 @@ Page({
           if (res.data.error_code === 0) {
             wx.showToast({
               title: "成功",
-              success: (result) => {},
+              icon: 'none',
             });
             navigateTo(
               `/pages/exploitStatus/index?id=${this.data.optionsId}&color_name=${
@@ -212,6 +212,7 @@ Page({
     } else {
       wx.showToast({
         title: "已经没有下一页的数据了",
+        icon: 'none',
       });
     }
   },

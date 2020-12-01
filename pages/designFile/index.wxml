@@ -1,0 +1,61 @@
+<tabBar></tabBar>
+<view wx:if="{{designFile}}">
+  <view class="main">
+    <view class="search_input">
+      <input bindinput='handleSearchInput' value="{{styleno}}" placeholder="搜索款号">
+      <icon class="icon-small" type="search" size="25"></icon>
+      </input>
+
+    </view>
+  </view>
+
+  <view>
+    <view class="card_list">
+      <view class="list" wx:for='{{goods}}' wx:key='id'>
+        <view class="listLeft" bindtap='gostatus' data-item="{{item}}">
+          <view class="listLeftImg">
+            <view class="image1">
+              <image src="{{item.style_pic_url}}" mode="widthFix" />
+            </view>
+          </view>
+          <view class="listLeftInfo">
+            <view class="listLeftInfoName">{{item.stylename}}</view>
+            <view>{{item.styleno}}</view>
+            <view>{{item.style_type}}</view>
+          </view>
+        </view>
+        <view class="listRight">
+          <checkbox-group bindchange='handleCheck' data-item="{{item}}">
+            <checkbox class="assist_list" checked="{{item.checked}}"></checkbox>
+          </checkbox-group>
+        </view>
+      </view>
+    </view>
+    <view class="card_list">
+      <view class="list" wx:for='{{goodsSearch}}' wx:key='id'>
+        <view class="listLeft" bindtap='gostatus' data-item="{{item}}">
+          <view class="listLeftImg">
+            <view class="image1">
+              <image src="{{item.style_pic_url}}" mode="widthFix" />
+            </view>
+          </view>
+          <view class="listLeftInfo">
+            <view class="listLeftInfoName">{{item.stylename}}</view>
+            <view>{{item.styleno}}</view>
+            <view>{{item.style_type}}</view>
+          </view>
+        </view>
+        <!-- <view class="listRight">
+          <checkbox-group bindchange='handleCheck' data-item="{{item}}">
+            <checkbox class="assist_list" checked="{{item.checked}}"></checkbox>
+          </checkbox-group>
+        </view> -->
+      </view>
+    </view>
+  </view>
+  <!-- <view class="newProject" bindtap='newProject' wx:if='produce_lotadd'>
+    <view class="icon-increase iconfont">
+    </view>
+  </view> -->
+</view>
+<!-- <text>功能正在开发中...</text> -->

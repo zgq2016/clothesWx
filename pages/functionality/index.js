@@ -16,6 +16,9 @@ Page({
   go_project() {
     navigateTo(`/pages/project/index`);
   },
+  go_designFile() {
+    navigateTo(`/pages/designFile/index`);
+  },
   onReady: function () {
 
   },

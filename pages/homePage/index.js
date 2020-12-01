@@ -41,14 +41,6 @@ Page({
       Z6000,
     });
     console.log(this.data.permission);
-    // this.setData({
-    //   active1: this.data.permission.indexOf("Z3000") != -1,
-    //   active2: this.data.permission.indexOf("Z5000") != -1,
-    //   active3: this.data.permission.indexOf("Z6000") != -1,
-    // });
-    // this.style_init();
-    // this.pattern_init();
-    // this.sample_init();
   },
   go_style1(e) {
     navigateTo(
@@ -135,15 +127,7 @@ Page({
       navigateTo(`/pages/login/index`);
       return;
     }
-    let permission = wx.getStorageSync("permission").split(",");
-    this.setData({
-      permission,
-    });
-    this.setData({
-      active1: this.data.permission.indexOf("Z3000") != -1,
-      active2: this.data.permission.indexOf("Z5000") != -1,
-      active3: this.data.permission.indexOf("Z6000") != -1,
-    });
+
     this.style_init();
     this.pattern_init();
     this.sample_init();
@@ -151,16 +135,7 @@ Page({
   },
   onHide: function () {},
   onUnload: function () {},
-  onPullDownRefresh: function () {
-    this.setData({
-      style_list: [],
-      style_pattern_list: [],
-      style_sample_list: [],
-    });
-    this.style_init();
-    this.pattern_init();
-    this.sample_init();
-  },
+  onPullDownRefresh: function () {},
   onReachBottom: function () {},
   onShareAppMessage: function () {},
   onPageScroll: function () {},

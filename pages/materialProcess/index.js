@@ -113,6 +113,7 @@ Page({
     } else {
       wx.showToast({
         title: "已经没有下一页的数据了",
+        icon: 'none',
       });
     }
   },

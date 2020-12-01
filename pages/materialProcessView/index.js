@@ -56,8 +56,10 @@ Page({
           navigateTo(`/pages/materialProcess/index`);
           wx.showToast({
             title: "删除成功",
-            success: (result) => {},
+            icon: 'none',
           });
+         
+            
         }
       },
       fail: () => {},

@@ -19,7 +19,7 @@
         <image wx:if="{{obj.projecttypename=='企划系列'}}" src="../../static/系列.jpg" mode='aspectFill' />
       </view>
       <view class="info_con">
-        <view class="projectname">项目名称：{{obj.projectname}}</view>
+        <view class="projectname">{{obj.projectname}}</view>
         <view>客户：{{obj.customer_companyname}}</view>
         <view>年份：{{obj.year}}</view>
         <view>季节：{{obj.season}}</view>

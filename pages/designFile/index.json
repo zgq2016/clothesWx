@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "tabBar": "../../components/tabBar/tabBar"
+  },
+  "navigationBarTitleText": "款式档案",
+  "enablePullDownRefresh": true
+}

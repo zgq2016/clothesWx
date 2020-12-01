@@ -223,14 +223,15 @@ Page({
     let my_role = wx.getStorageSync("role");
     this.setData({
       my_role,
+      goodsSearch: [],
+      goods: [],
     });
     this.QueryParams.page = 1;
     this.QueryParams.styleno = "";
     this.setData({
       styleno: "",
     });
-    this.data.goodsSearch = [];
-    this.data.goods = [];
+
     this.init();
   },
   onHide: function () {},
@@ -250,6 +251,7 @@ Page({
     } else {
       wx.showToast({
         title: "已经没有下一页的数据了",
+        icon: 'none',
       });
     }
   },

@@ -239,7 +239,7 @@ Page({
               success: (result) => {
                 wx.showToast({
                   title: "删除成功",
-                  success: (result) => {},
+                  icon: "none",
                 });
               },
             });
@@ -256,18 +256,21 @@ Page({
     if (this.data.projectname == "") {
       wx.showToast({
         title: "项目名称",
+        icon: "none",
       });
       return;
     }
     if (this.data.finishtime == "") {
       wx.showToast({
         title: "完成时间",
+        icon: "none",
       });
       return;
     }
     if (this.data.claim_num == "") {
       wx.showToast({
         title: "要求数量",
+        icon: "none",
       });
       return;
     }
@@ -275,18 +278,21 @@ Page({
       if (this.data.companynames_id == "") {
         wx.showToast({
           title: "客户",
+          icon: "none",
         });
         return;
       }
       if (this.data.year == "") {
         wx.showToast({
           title: "年份",
+          icon: "none",
         });
         return;
       }
       if (this.data.season == "") {
         wx.showToast({
           title: "季节",
+          icon: "none",
         });
         return;
       }
@@ -295,12 +301,14 @@ Page({
       if (this.data.season == "") {
         wx.showToast({
           title: "年份",
+          icon: "none",
         });
         return;
       }
       if (this.data.season == "") {
         wx.showToast({
           title: "季节",
+          icon: "none",
         });
         return;
       }
@@ -309,24 +317,28 @@ Page({
       if (this.data.element == "") {
         wx.showToast({
           title: "元素",
+          icon: "none",
         });
         return;
       }
       if (this.data.color_no == "") {
         wx.showToast({
           title: "色系",
+          icon: "none",
         });
         return;
       }
       if (this.data.year == "") {
         wx.showToast({
           title: "年份",
+          icon: "none",
         });
         return;
       }
       if (this.data.season == "") {
         wx.showToast({
           title: "季节",
+          icon: "none",
         });
         return;
       }
@@ -369,7 +381,7 @@ Page({
     });
     wx.showToast({
       title: res.data.msg,
-      icon: "",
+      icon: 'none',
     });
     if (res.data.error_code == 0) {
       navigateTo(`/pages/project/index`);

@@ -198,6 +198,7 @@ Page({
       } else {
         wx.showToast({
           title: "请填写数据",
+          icon: "none",
         });
       }
     }
@@ -251,7 +252,7 @@ Page({
       } else {
         wx.showToast({
           title: "请填写数据",
-          icon: null,
+          icon: "none",
         });
       }
     }
@@ -299,6 +300,7 @@ Page({
       } else {
         wx.showToast({
           title: "请填写数据",
+          icon: "none",
         });
       }
     }
@@ -333,9 +335,31 @@ Page({
     });
     wx.showToast({
       title: res.data.msg,
+      icon: "none",
     });
-    if (res.data.error_code === 0) {
+    if (res.data.error_code == 0) {
       navigateTo(`/pages/materialProcess/index`);
+    }
+    if (res.data.error_code == 2) {
+      obj.confirm = 1;
+      wx.showModal({
+        title: "提示",
+        content: res.data.msg,
+        success: async (result) => {
+          if (result.confirm) {
+            let res = await request({
+              url: "materials_add",
+              method: "post",
+              data: obj,
+            });
+            if (res.data.error_code == 0) {
+              navigateTo(`/pages/materialProcess/index`);
+            }
+          }
+        },
+        fail: () => {},
+        complete: () => {},
+      });
     }
   },
   /**
@@ -620,18 +644,21 @@ Page({
     if (this.data.picurl != "") {
       wx.showToast({
         title: "请先保存",
+        icon: "none",
       });
       return;
     }
     if (this.data.color != "") {
       wx.showToast({
         title: "请先保存",
+        icon: "none",
       });
       return;
     }
     if (this.data.color_no != "") {
       wx.showToast({
         title: "请先保存",
+        icon: "none",
       });
       return;
     }
@@ -679,20 +706,24 @@ Page({
     if (this.data.picurl == "") {
       wx.showToast({
         title: "请上传图片",
+        icon: "none",
       });
     } else if (this.data.color == "") {
       wx.showToast({
         title: "请选择颜色",
+        icon: "none",
       });
     } else if (this.data.color_no == "") {
       wx.showToast({
         title: "请填写色号",
+        icon: "none",
       });
     } else {
       for (let index = 0; index < this.data.color_data.length; index++) {
         if (this.data.color_data[index].color == this.data.color) {
           wx.showToast({
             title: "颜色不可重复",
+            icon: "none",
           });
           return;
         }
@@ -702,6 +733,7 @@ Page({
         ) {
           wx.showToast({
             title: "色号不可重复",
+            icon: "none",
           });
           return;
         }

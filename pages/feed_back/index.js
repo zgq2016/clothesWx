@@ -84,12 +84,14 @@ Page({
     if (!this.data.delay_form.remarks) {
       wx.showToast({
         title: "原因",
+        icon: 'none',
       });
       return;
     }
     if (!this.data.delay_form.returntime) {
       wx.showToast({
         title: "选择日期",
+        icon: 'none',
       });
       return;
     }
@@ -127,12 +129,14 @@ Page({
     if (!this.data.all_form.amount) {
       wx.showToast({
         title: "结算金额",
+        icon: 'none',
       });
       return;
     }
     if (!this.data.all_form.picurl) {
       wx.showToast({
         title: "上传凭证",
+        icon: 'none',
       });
       return;
     }
@@ -178,24 +182,28 @@ Page({
     if (!this.data.portion_form.quantity) {
       wx.showToast({
         title: "回料数量",
+        icon: 'none',
       });
       return;
     }
     if (!this.data.portion_form.amount) {
       wx.showToast({
         title: "结算金额",
+        icon: 'none',
       });
       return;
     }
     if (!this.data.portion_form.returntime) {
       wx.showToast({
         title: "结算金额",
+        icon: 'none',
       });
       return;
     }
     if (!this.data.portion_form.returntime) {
       wx.showToast({
         title: "选择日期",
+        icon: 'none',
       });
       return;
     }

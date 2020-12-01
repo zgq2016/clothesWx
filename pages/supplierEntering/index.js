@@ -103,6 +103,7 @@ Page({
     } else {
       wx.showToast({
         title: "填充数据",
+        icon: 'none',
       });
     }
   },
@@ -130,7 +131,7 @@ Page({
     });
     wx.showToast({
       title: res.data.msg,
-      icon: "",
+      icon: 'none',
       duration: 1500,
       mask: true,
     });

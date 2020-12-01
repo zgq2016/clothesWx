@@ -12,4 +12,8 @@
     <view class="project_img"></view>
     <view class="project_con">设计项目</view>
   </view>
+  <view class="project" bindtap="go_designFile">
+    <view class="project_img"></view>
+    <view class="project_con">款式档案</view>
+  </view>
 </view>

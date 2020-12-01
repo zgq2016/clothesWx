@@ -11,7 +11,7 @@
   <view class="tabs" animation="{{aniscale}}"> </view>
 </view>
 <view class="tab_item {{show_active?'tab_item_active':''}}">
-  <view wx:if='{{my_role!=2}}' bindtap='Ewm'>扫码</view>
+  <view bindtap='Ewm'>扫码</view>
   <view wx:if='{{my_role==2||my_role==1}}' bindtap='go_style'>发布款式</view>
   <view wx:if='{{my_role==2||my_role==1}}' bindtap='go_Material'>物料工艺卡</view>
   <view wx:if='{{my_role==2||my_role==1}}' bindtap='go_supplier'>供应商</view>
