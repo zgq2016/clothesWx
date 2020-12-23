@@ -4,14 +4,14 @@
   <view class="main">
     <view class="images_upload">
       <view class="upload">
-        <image wx:if='{{cardpicurl}}' src="{{cardpicurl}}" mode='center' bindtap='get_cardpicurl_image' />
+        <image wx:if='{{cardpicurl}}' src="{{cardpicurl}}" mode='aspectFill' bindtap='get_cardpicurl_image' />
         <view wx:if='{{!cardpicurl}}' class="image2" bindtap='get_cardpicurl_image'>
           <image src="../../static/upload.svg" style="width: 60rpx;height: 60rpx;" />
           <view>公司LOGO</view>
         </view>
       </view>
       <view class="upload">
-        <image wx:if='{{tempFilePaths}}' src="{{tempFilePaths}}" mode='center' bindtap='Image_recognition_content' />
+        <image wx:if='{{tempFilePaths}}' src="{{tempFilePaths}}" mode='aspectFill' bindtap='Image_recognition_content' />
         <view wx:if='{{!tempFilePaths}}' class="image2" bindtap='Image_recognition_content'>
           <image src="../../static/upload.svg" style="width: 60rpx;height: 60rpx;" />
           <view>识别内容</view>

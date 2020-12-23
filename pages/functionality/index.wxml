@@ -16,4 +16,8 @@
     <view class="project_img"></view>
     <view class="project_con">款式档案</view>
   </view>
+  <view class="project" bindtap="go_west_produced">
+    <view class="project_img"></view>
+    <view class="project_con">西所生产</view>
+  </view>
 </view>

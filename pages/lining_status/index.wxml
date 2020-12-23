@@ -1,10 +1,10 @@
-<view class="operation" wx:if='{{options_ss!=3}}'>
+<view class="operation">
   <view class="tab">
-    <view bindtap='go_modify_order' wx:if='{{state==1||state==5}}'>修改订单</view>
-    <view bindtap='go_close_order' wx:if='{{state==1||state==5}}'>取消订单</view>
-    <view bindtap='go_delay_back'>延迟回料</view>
-    <view bindtap='go_portion_back'>部分回料</view>
-    <view bindtap='go_all_back'>全部回料</view>
+    <view bindtap='go_modify_order' wx:if='{{state==1}}'>修改订单</view>
+    <view bindtap='go_close_order' wx:if='{{state>0}}'>退单</view>
+    <view bindtap='go_delay_back' wx:if='{{state<4}}'>延迟回料</view>
+    <view bindtap='go_portion_back' wx:if='{{state<4}}'>部分回料</view>
+    <view bindtap='go_all_back' wx:if='{{state<4}}'>全部回料</view>
   </view>
 </view>
 

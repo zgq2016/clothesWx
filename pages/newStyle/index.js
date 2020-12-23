@@ -164,35 +164,35 @@ Page({
     if (this.data.user_id_data_list.length == 0) {
       wx.showToast({
         title: "请上传款式图片",
-        icon: 'none',
+        icon: "none",
       });
       return;
     }
     if (this.data.stylename == "") {
       wx.showToast({
         title: "请输入名称",
-        icon: 'none',
+        icon: "none",
       });
       return;
     }
     if (this.data.style_type == "") {
       wx.showToast({
         title: "请输入品类",
-        icon: 'none',
+        icon: "none",
       });
       return;
     }
     if (this.data.year == "") {
       wx.showToast({
         title: "请输入年份",
-        icon: 'none',
+        icon: "none",
       });
       return;
     }
     if (this.data.season == "") {
       wx.showToast({
         title: "请输入季节",
-        icon: 'none',
+        icon: "none",
       });
       return;
     }
@@ -233,7 +233,7 @@ Page({
     console.log(res);
     wx.showToast({
       title: res.data.msg,
-      icon: 'none',
+      icon: "none",
     });
     if (res.data.error_code == 0) {
       navigateTo(`/pages/work/index`);
@@ -346,11 +346,6 @@ Page({
   async get_project() {
     let res = await request({
       url: "get_project_list",
-      method: "post",
-      data: {
-        page: 1,
-        page_size: 10000,
-      },
     });
     this.setData({
       project_list: res.data.data,

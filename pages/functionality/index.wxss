@@ -1,5 +1,6 @@
 .functionality {
   display: flex;
+  flex-wrap: wrap;
 }
 .functionality .supplier {
   width: 25vw;

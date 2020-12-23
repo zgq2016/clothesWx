@@ -42,6 +42,10 @@ Page({
       returntime: "",
       remarks: "",
     },
+    chargebackForm: {
+      amount: "",
+      refund_money: "",
+    },
     cursor: "",
   },
   //options(Object)
@@ -64,6 +68,12 @@ Page({
         totalprice: options.totalprice - 0,
       });
     }
+    if (this.data.status == 4) {
+      this.setData({
+        ["chargebackForm.refund_money"]: options.paid_money,
+        ["chargebackForm.amount"]: options.received_quantity,
+      });
+    }
     const { cropperOpt } = this.data;
     this.cropper = new WeCropper(cropperOpt)
       .on("ready", (ctx) => {})
@@ -81,17 +91,17 @@ Page({
   },
 
   async delay_form_step() {
-    if (!this.data.delay_form.remarks) {
+    if (this.data.delay_form.remarks == "") {
       wx.showToast({
         title: "原因",
-        icon: 'none',
+        icon: "none",
       });
       return;
     }
-    if (!this.data.delay_form.returntime) {
+    if (this.data.delay_form.returntime == "") {
       wx.showToast({
         title: "选择日期",
-        icon: 'none',
+        icon: "none",
       });
       return;
     }
@@ -124,19 +134,56 @@ Page({
       cursor: e.detail.cursor,
     });
   },
-  async all_form_step() {
-    console.log();
-    if (!this.data.all_form.amount) {
+  get_chargeback_amount(e) {
+    this.setData({ ["chargebackForm.amount"]: e.detail.value });
+  },
+  get_chargeback_refund_money(e) {
+    this.setData({ ["chargebackForm.refund_money"]: e.detail.value });
+  },
+  async chargeback_form_step() {
+    if (this.data.chargebackForm.amount == "") {
       wx.showToast({
-        title: "结算金额",
-        icon: 'none',
+        title: "退货数量",
+        icon: "none",
       });
       return;
     }
-    if (!this.data.all_form.picurl) {
+    if (this.data.chargebackForm.refund_money == "") {
+      wx.showToast({
+        title: "退款金额",
+        icon: "none",
+      });
+      return;
+    }
+
+    let data = {};
+    data = this.data.chargebackForm;
+    data["id"] = this.data.options_id;
+    let res = await request({
+      url: "style_purchase_del",
+      method: "post",
+      data,
+    });
+    console.log(res);
+    navigateTo(
+      `/pages/exploitStatus/index?id=${this.data.style_id}&navScrollLeft=${
+        2 * 375
+      }&currentTab=${2}`
+    );
+  },
+  async all_form_step() {
+    console.log();
+    if (this.data.all_form.amount == "") {
+      wx.showToast({
+        title: "结算金额",
+        icon: "none",
+      });
+      return;
+    }
+    if (this.data.all_form.picurl == "") {
       wx.showToast({
         title: "上传凭证",
-        icon: 'none',
+        icon: "none",
       });
       return;
     }
@@ -179,31 +226,31 @@ Page({
   },
 
   async portion_form_step() {
-    if (!this.data.portion_form.quantity) {
+    if (this.data.portion_form.quantity == "") {
       wx.showToast({
         title: "回料数量",
-        icon: 'none',
+        icon: "none",
       });
       return;
     }
-    if (!this.data.portion_form.amount) {
+    if (this.data.portion_form.amount == "") {
       wx.showToast({
         title: "结算金额",
-        icon: 'none',
+        icon: "none",
       });
       return;
     }
-    if (!this.data.portion_form.returntime) {
+    if (this.data.portion_form.returntime == "") {
       wx.showToast({
         title: "结算金额",
-        icon: 'none',
+        icon: "none",
       });
       return;
     }
-    if (!this.data.portion_form.returntime) {
+    if (this.data.portion_form.returntime == "") {
       wx.showToast({
         title: "选择日期",
-        icon: 'none',
+        icon: "none",
       });
       return;
     }

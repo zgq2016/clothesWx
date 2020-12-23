@@ -14,9 +14,9 @@
           <image src="{{item.picurl}}" mode='aspectFill' />
         </view>
         <view class="img" wx:if='{{item.picurl==""}}'>
-          <image wx:if="{{item.projecttypename=='意向订单'}}" src="../../static/意向.jpg" mode='aspectFill' />
-          <image wx:if="{{item.projecttypename=='阶段工作'}}" src="../../static/阶段.jpg" mode='aspectFill' />
-          <image wx:if="{{item.projecttypename=='企划系列'}}" src="../../static/系列.jpg" mode='aspectFill' />
+          <image wx:if="{{item.projecttypename=='意向订单'}}" src="../../static/yixiang.jpg" mode='aspectFill' />
+          <image wx:if="{{item.projecttypename=='阶段工作'}}" src="../../static/jieduan.jpg" mode='aspectFill' />
+          <image wx:if="{{item.projecttypename=='企划系列'}}" src="../../static/xilie.jpg" mode='aspectFill' />
         </view>
 
         <view class="con">

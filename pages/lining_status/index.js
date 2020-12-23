@@ -26,34 +26,37 @@ Page({
     this.init();
   },
   go_close_order() {
-    wx.showModal({
-      title: "提示",
-      content: "是否取消订单",
-      success: async (result) => {
-        if (result.confirm) {
-          let res = await request({
-            url: "style_purchase_del",
-            method: "post",
-            data: {
-              id: this.data.options_id,
-            },
-          });
-          wx.showToast({
-            title: res.data.msg,
-            icon: 'none',
-          });
-          if (res.data.error_code === 0) {
-            navigateTo(
-              `/pages/exploitStatus/index?id=${
-                this.data.style_id
-              }&navScrollLeft=${2 * 375}&currentTab=${2}`
-            );
-          }
-        }
-      },
-      fail: () => {},
-      complete: () => {},
-    });
+    navigateTo(
+      `/pages/feed_back/index?id=${this.data.options_id}&style_id=${this.data.style_id}&status=4&paid_money=${this.data.paid_money}&received_quantity=${this.data.received_quantity}`
+    );
+    // wx.showModal({
+    //   title: "提示",
+    //   content: "是否取消订单",
+    //   success: async (result) => {
+    //     if (result.confirm) {
+    //       let res = await request({
+    //         url: "style_purchase_del",
+    //         method: "post",
+    //         data: {
+    //           id: this.data.options_id,
+    //         },
+    //       });
+    //       wx.showToast({
+    //         title: res.data.msg,
+    //         icon: 'none',
+    //       });
+    //       if (res.data.error_code === 0) {
+    //         navigateTo(
+    //           `/pages/exploitStatus/index?id=${
+    //             this.data.style_id
+    //           }&navScrollLeft=${2 * 375}&currentTab=${2}`
+    //         );
+    //       }
+    //     }
+    //   },
+    //   fail: () => {},
+    //   complete: () => {},
+    // });
   },
   go_modify_order() {
     navigateTo(
@@ -101,6 +104,7 @@ Page({
     let price = "";
     let totalprice = "";
     let materials_id = "";
+    let received_quantity = "";
     res.data.data.map((v, i) => {
       v.style_materials_data.map((v1, i1) => {
         if (v1.id == this.data.options_id) {
@@ -113,6 +117,7 @@ Page({
           paid_money = v1.paid_money;
           price = v1.price;
           totalprice = v1.totalprice;
+          received_quantity = v1.received_quantity;
         }
       });
     });
@@ -126,6 +131,7 @@ Page({
       totalprice,
       state,
       materials_id,
+      received_quantity,
     });
   },
   onReady: function () {},

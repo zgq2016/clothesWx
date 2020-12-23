@@ -436,11 +436,6 @@ Page({
   async get_project() {
     let res = await request({
       url: "get_project_list",
-      method: "post",
-      data: {
-        page: 1,
-        page_size: 10000,
-      },
     });
     this.setData({
       project_list: res.data.data,

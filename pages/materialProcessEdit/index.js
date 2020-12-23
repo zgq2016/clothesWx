@@ -813,23 +813,33 @@ Page({
     } else {
       for (let index = 0; index < this.data.color_data.length; index++) {
         console.log(this.data.color_data);
-        if (this.data.color_data[index].color == this.data.color) {
-          wx.showToast({
-            title: "颜色不可重复",
-            icon: "none",
-          });
-          return;
-        }
         if (
-          this.data.color_data[index].color_no == this.data.color_no &&
-          this.data.color_data[index].color_no != "无编号"
+          this.data.color_data[index].color == this.data.color &&
+          this.data.color_data[index].color_no == this.data.color_no
         ) {
           wx.showToast({
-            title: "色号不可重复",
+            title: "颜色和色号不可一样",
             icon: "none",
           });
           return;
         }
+        // if (this.data.color_data[index].color == this.data.color) {
+        //   wx.showToast({
+        //     title: "颜色不可重复",
+        //     icon: "none",
+        //   });
+        //   return;
+        // }
+        // if (
+        //   this.data.color_data[index].color_no == this.data.color_no &&
+        //   this.data.color_data[index].color_no != "无编号"
+        // ) {
+        //   wx.showToast({
+        //     title: "色号不可重复",
+        //     icon: "none",
+        //   });
+        //   return;
+        // }
       }
     }
     console.log(this.data.id);

@@ -82,60 +82,64 @@ Page({
     if (!this.data.form.dosage) {
       wx.showToast({
         title: "用量",
-        icon: 'none',
+        icon: "none",
       });
       return;
     }
     if (!this.data.form.amountPurchased) {
       wx.showToast({
         title: "采购量",
-        icon: 'none',
+        icon: "none",
       });
       return;
     }
     if (!this.data.form.purchasePrice) {
       wx.showToast({
         title: "采购单价",
-        icon: 'none',
+        icon: "none",
       });
       return;
     }
     if (!this.data.form.money) {
       wx.showToast({
         title: "金额",
-        icon: 'none',
+        icon: "none",
       });
       return;
     }
     if (!this.data.form.deposit && this.data.form.payment == 0) {
       wx.showToast({
         title: "订金",
-        icon: 'none',
+        icon: "none",
       });
       return;
     }
     if (!this.data.form.balance_account_id) {
       wx.showToast({
         title: "结算账户",
-        icon: 'none',
+        icon: "none",
       });
       return;
     }
     if (!this.data.form.finishTime) {
       wx.showToast({
         title: "选择日期",
-        icon: 'none',
+        icon: "none",
       });
       return;
     }
     if (!this.data.form.storehouse_id) {
       wx.showToast({
         title: "仓库",
-        icon: 'none',
+        icon: "none",
       });
       return;
     }
-
+    if (form.payment == 1) {
+      this.setData({
+        ["form.deposit"]: form.money,
+      });
+    }
     let res = await request({
       url: "purchase_edit",
       method: "post",

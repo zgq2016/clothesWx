@@ -5,7 +5,7 @@
 <view class="newStyle" wx:if='{{step_status==0}}'>
   <view class="main">
     <view class="upload">
-      <image wx:if='{{picurl}}' src="{{picurl}}" mode='center' bindtap='get_color_image' />
+      <image wx:if='{{picurl}}' src="{{picurl}}" mode='aspectFill' bindtap='get_color_image' />
       <view wx:if='{{!picurl}}' class="image2" bindtap='get_color_image'>
         <image src="../../static/upload.svg" style="width: 60rpx;height: 60rpx;" />
         <view>物料图片</view>

@@ -24,7 +24,8 @@
     <view class="form">
       <view class="designation">
         <text class="name">回料数量</text>
-        <input type="digit" value="{{portion_form.quantity}}" bindinput='get_portion_quantity' placeholder="回料数量"></input>
+        <input type="digit" value="{{portion_form.quantity}}" bindinput='get_portion_quantity'
+          placeholder="回料数量"></input>
       </view>
       <view class="designation">
         <text class="name">结算金额</text>
@@ -116,4 +117,22 @@
     </view>
   </view>
   <view class="next_step" bindtap='delay_form_step'>完成</view>
+</view>
+<view class="newStyle" wx:if='{{status==4}}'>
+  <view class="main">
+    <view class="border"></view>
+    <view class="form">
+      <view class="designation">
+        <text class="name">退货数量</text>
+        <input type="digit" value="{{chargebackForm.amount}}" bindchange='get_chargeback_amount'
+          placeholder="退货数量"></input>
+      </view>
+      <view class="designation">
+        <text class="name">退款金额</text>
+        <input type="digit" value="{{chargebackForm.refund_money}}" bindchange='get_chargeback_refund_money'
+          placeholder="退款金额"></input>
+      </view>
+    </view>
+  </view>
+  <view class="next_step" bindtap='chargeback_form_step'>完成</view>
 </view>
