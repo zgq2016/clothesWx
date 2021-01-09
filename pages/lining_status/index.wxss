@@ -1,46 +1,62 @@
-.operation {
-  width: 100vw;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 20rpx 0;
-}
-.operation .tab {
+.next_step {
   width: 600rpx;
-  height: 100rpx;
-  border-radius: 100rpx;
-  background-color: #ccc;
-  display: flex;
-}
-.operation .tab view {
-  flex: 1;
+  height: 80rpx;
+  background-color: #000;
+  color: #fff;
   display: flex;
   justify-content: center;
   align-items: center;
+  border-radius: 200rpx;
+  position: fixed;
+  bottom: 30rpx;
+  left: 50%;
+  transform: translate(-50%, 0);
 }
 .view_log {
   width: 100vw;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 20rpx 0;
+  padding: 40rpx;
 }
 .view_log .log {
   display: flex;
 }
-.view_log .log .cell_circle {
+.view_log .log .first_circle {
+  width: 10rpx;
+  height: 150rpx;
+  position: relative;
+  margin: 0 20rpx;
+}
+.view_log .log .first_circle .ccc {
+  position: absolute;
+  left: -10rpx;
+  top: 20rpx;
+  width: 30rpx;
+  height: 30rpx;
+  border-radius: 50%;
+  background-color: #ccc;
+  z-index: 99;
+}
+.view_log .log .con_circle {
   width: 10rpx;
   height: 150rpx;
   background-color: #ccc;
   position: relative;
+  left: 0;
+  top: -130rpx;
   margin: 0 20rpx;
 }
-.view_log .log .cell_circle view {
+.view_log .log .con_circle .ccc {
   position: absolute;
-  left: 0;
-  top: 0;
-  width: 10rpx;
-  height: 10rpx;
+  left: -10rpx;
+  top: 150rpx;
+  z-index: 99;
+  width: 30rpx;
+  height: 30rpx;
   border-radius: 50%;
-  background-color: #000;
+  background-color: #ccc;
+}
+.bgc {
+  background-color: #000 !important;
 }

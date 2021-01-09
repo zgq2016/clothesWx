@@ -22,7 +22,7 @@ image {
 page {
   /* 定义主题颜色 */
   /* 14px */
-  font-size: 24rpx;
+  font-size: 28rpx;
   width: 750rpx;
   color: #000;
   background-color: #f5f5f5;

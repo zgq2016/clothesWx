@@ -1,6 +1,9 @@
 {
-  "pages": [      
+  "pages": [ 
+    "pages/filter/index",     
     "pages/homePage/index",
+    "pages/add_advance_reimbursement/index",
+    "pages/advance_reimbursement/index",
     "pages/designFile/index",
     "pages/materialProcessAdd/index",
     "pages/materialProcess_go/index",

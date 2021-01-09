@@ -1,0 +1,180 @@
+<tabBar></tabBar>
+<view class="header">
+  <view class="header_info">
+    <view>
+      {{form.ctime_start}} 至 {{form.ctime_end}}
+    </view>
+    <view>
+      {{form.type}}
+    </view>
+    <view>
+      {{form.user_name}}
+    </view>
+  </view>
+  <view class="operation">
+    <icon class="icon-small" type="search" size="25" bindtap='search_tab'></icon>
+    <view bindtap='release_tab'>
+      <image class="" src="../../static/ze-add2.svg" />
+    </view>
+  </view>
+</view>
+
+<!-- <image src="../../static/yuzhi.svg" />
+<image src="../../static/baoxiao.svg" /> -->
+
+
+<view class="search_form" wx:if='{{show_active1}}'>
+  <view class="form">
+    <view class="date">
+      <picker mode="date" value="{{form.ctime_start}}" bindchange="bindCtimeStartChange" name='date'>
+        <view class="picker">
+          <text class="name" decode="{{true}}">开始日期</text>
+          <view class="con">
+            <view wx:if='{{!form.ctime_start}}' style="color: #808080;">
+              开始日期
+            </view>
+            <view wx:if='{{form.ctime_start}}'>
+              {{form.ctime_start}}
+            </view>
+            <view class="iconfont icon-icon-test3"></view>
+          </view>
+        </view>
+      </picker>
+    </view>
+    <view class="date">
+      <picker mode="date" value="{{form.ctime_end}}" bindchange="bindCtimeEndChange" name='date'>
+        <view class="picker">
+          <text class="name" decode="{{true}}">结束日期</text>
+          <view class="con">
+            <view wx:if='{{!form.ctime_end}}' style="color: #808080;">
+              结束日期
+            </view>
+            <view wx:if='{{form.ctime_end}}'>
+              {{form.ctime_end}}
+            </view>
+            <view class="iconfont icon-icon-test3"></view>
+          </view>
+        </view>
+      </picker>
+    </view>
+    <view class="date">
+      <picker bindchange="bindTypeSelect" value="{{form.type}}" range="{{type_list}}" range-key='name'>
+        <view class="picker">
+          <text class="name" decode="{{true}}">类型</text>
+          <view class="con">
+            <view wx:if='{{!form.type}}'>
+              请选择类型
+            </view>
+            <view wx:if='{{form.type}}'>
+              {{form.type}}
+            </view>
+            <view class="iconfont icon-icon-test3"></view>
+          </view>
+        </view>
+      </picker>
+    </view>
+    <view class="date">
+      <picker bindchange="bindProposerSelect" value="{{form.user_name}}" range="{{user_select}}" range-key='name'>
+        <view class="picker">
+          <text class="name" decode="{{true}}">申请人</text>
+          <view class="con">
+            <view wx:if='{{!form.user_name}}'>
+              请选择申请人
+            </view>
+            <view wx:if='{{form.user_name}}'>
+              {{form.user_name}}
+            </view>
+            <view class="iconfont icon-icon-test3"></view>
+          </view>
+        </view>
+      </picker>
+    </view>
+    <view class="next_step" bindtap='next_step'>确定</view>
+  </view>
+  <!-- <view class="date">
+    <picker mode="date" value="{{form.ctime_start}}" bindchange="bindCtimeStartChange" name='date'>
+      <view class="ctime_start">
+        <view wx:if='{{!form.ctime_start}}' style="color: #808080;">
+          开始日期
+        </view>
+        <view wx:if='{{form.ctime_start}}'>
+          {{form.ctime_start}}
+        </view>
+      </view>
+    </picker>
+    <view class="most">至</view>
+    <picker mode="date" value="{{form.ctime_end}}" bindchange="bindCtimeEndChange" name='date'>
+      <view class="ctime_end">
+        <view wx:if='{{!form.ctime_end}}' style="color: #808080;">
+          结束日期
+        </view>
+        <view wx:if='{{form.ctime_end}}'>
+          {{form.ctime_end}}
+        </view>
+      </view>
+    </picker>
+  </view> -->
+</view>
+<view class="right_form" animation="{{translate}}">
+  <view class="arrows"></view>
+  <view class="go_select">
+    <navigator url="/pages/add_advance_reimbursement/index?type=0">
+      预支
+    </navigator>
+    <navigator url="/pages/add_advance_reimbursement/index?type=1">
+      报销
+    </navigator>
+  </view>
+</view>
+
+<!-- <view class="right_form" animation="{{translate}}">
+  <view class="arrows"></view>
+  <view class="type">
+    <view class="con">
+      <picker bindchange="bindTypeSelect" value="{{form.type}}" range="{{type_list}}" range-key='name'>
+        <view class="picker">
+          <view class="con">
+            <view wx:if='{{!form.type}}'>
+              请选择类型
+            </view>
+            <view wx:if='{{form.type}}'>
+              {{form.type}}
+            </view>
+            <view class="iconfont icon-icon-test3"></view>
+          </view>
+        </view>
+      </picker>
+    </view>
+  </view>
+  <view class="proposer">
+    <picker bindchange="bindProposerSelect" value="{{form.user_name}}" range="{{user_select}}" range-key='name'>
+      <view class="picker">
+        <view class="con">
+          <view wx:if='{{!form.user_name}}'>
+            请选择申请人
+          </view>
+          <view wx:if='{{form.user_name}}'>
+            {{form.user_name}}
+          </view>
+          <view class="iconfont icon-icon-test3"></view>
+        </view>
+      </view>
+    </picker>
+  </view>
+  <view class="Statistics">展示统计数据</view>
+</view> -->
+
+<!-- <view class="newProject">
+  <view class="icon-increase iconfont" bindtap='handleActiveShow'>
+  </view>
+  <view class="newProjectShow" wx:if='{{active}}' bindtap='handleActiveHide'>
+    <navigator url="/pages/add_advance_reimbursement/index?type=0" bindtap='handleActiveHide'>
+      预支
+    </navigator>
+    <navigator url="/pages/add_advance_reimbursement/index?type=1" bindtap='handleActiveHide'>
+      报销
+    </navigator>
+    <view class="icon-increase iconfont" bindtap='handleActiveHide'>
+    </view>
+  </view>
+</view> -->

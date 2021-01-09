@@ -49,4 +49,12 @@
     </view>
     <view class="next_step" bindtap='next_step8'>确认</view>
   </view>
+  <view class="designation" wx:if='{{tab==9}}'>
+    <input value="{{money}}" auto-focus bindchange='get_money' placeholder="请输入预支金额" />
+    <view class="next_step" bindtap='next_step9'>确认</view>
+  </view>
+  <view class="designation" wx:if='{{tab==10}}'>
+    <input value="{{money}}" auto-focus bindchange='get_money' placeholder="请输入报销金额" />
+    <view class="next_step" bindtap='next_step9'>确认</view>
+  </view>
 </view>

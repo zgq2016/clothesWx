@@ -55,6 +55,9 @@
       <navigator url="/pages/projectAdd/index?projecttype={{2}}" bindtap='handleActiveHide'>
         企划
       </navigator>
+
+      <view class="icon-increase iconfont" bindtap='handleActiveHide'>
+      </view>
     </view>
   </view>
 </view>

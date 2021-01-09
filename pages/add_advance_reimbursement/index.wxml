@@ -1,0 +1,172 @@
+<import src="../../components/we-cropper/we-cropper" />
+
+<view class="we_cropper" wx:if='{{we_cropper_active}}'>
+  <view class="imgDisposeBlock">
+    <view class='imgDisposeArea'>
+      <template is="we-cropper" data="{{...cropperOpt}}" />
+    </view>
+    <view class='imgDisposeControlLine'>
+      <view class='editBtn closeBtn' bindtap="closeTap">取消</view>
+      <view class='editBtn editPerfectBtn' bindtap="getCropperImage">上传</view>
+    </view>
+  </view>
+</view>
+
+<view class="advance" wx:if='{{options_type==0}}'>
+  <view class="main">
+    <view class="textarea">
+      <textarea focus="{{focus}}" bindinput='get_reason' value='{{pay_form.reason}}' placeholder="事由"
+        maxlength='1000'> </textarea>
+      <view>{{pay_form.cursor||'0'}} / 1000</view>
+    </view>
+    <view class="border"></view>
+    <view class="form">
+      <view class="year">
+        <picker bindchange="bindAccountSelect" value="{{pay_form.account_name}}" range="{{account_select}}"
+          range-key='account_name'>
+          <view class="picker">
+            <text class="name" decode="{{true}}">结算账户</text>
+            <view class="con">
+              <view wx:if='{{!pay_form.account_name}}' style="color: #808080;">
+                结算账户
+              </view>
+              <view wx:if='{{pay_form.account_name}}'>
+                {{pay_form.account_name}}
+              </view>
+              <view class="iconfont icon-icon-test3"></view>
+            </view>
+          </view>
+        </picker>
+      </view>
+      <view class="style_number">
+        <text class="name" decode="{{true}}">账户余额</text>
+        <view>{{pay_form.balance}}</view>
+      </view>
+      <view class="designation" bindtap='go_select'>
+        <text class="name" decode="{{true}}">预支金额</text>
+        <view class="con">
+          <view>{{pay_form.money}}</view>
+          <view class="iconfont icon-icon-test3"></view>
+        </view>
+      </view>
+      <view class="year">
+        <picker bindchange="bindUserSelect" value="{{pay_form.auth_name}}" range="{{user_select}}" range-key='name'>
+          <view class="picker">
+            <text class="name" decode="{{true}}">审批人</text>
+            <view class="con">
+              <view wx:if='{{!pay_form.auth_name}}' style="color: #808080;">
+                审批人
+              </view>
+              <view wx:if='{{pay_form.auth_name}}'>
+                {{pay_form.auth_name}}
+              </view>
+              <view class="iconfont icon-icon-test3"></view>
+            </view>
+          </view>
+        </picker>
+      </view>
+    </view>
+  </view>
+  <view class="next_step" bindtap='next_step_advance'>完成</view>
+
+</view>
+
+<view class="reimbursement" wx:if='{{options_type==1}}'>
+  <view class="main">
+    <view class="images_upload">
+      <view wx:if='{{re_form.picurl}}' class="images_upload_list" bindtap='image1'>
+        <image src="{{re_form.picurl}}" mode='heightFix' />
+      </view>
+      <view wx:if='{{!re_form.picurl}}' class="image2" bindtap='image1'>
+        <image src="../../static/upload.svg" style="width: 60rpx;height: 60rpx;" />
+        <view>附图</view>
+      </view>
+    </view>
+    <view class="textarea">
+      <textarea focus="{{focus}}" bindinput='get_reason' value='{{re_form.reason}}' placeholder="事由"
+        maxlength='1000'> </textarea>
+      <view>{{re_form.cursor||'0'}} / 1000</view>
+    </view>
+    <view class="border"></view>
+    <view class="form">
+      <view class="year">
+        <picker bindchange="bindAccountSelect" value="{{re_form.account_name}}" range="{{account_select}}"
+          range-key='account_name'>
+          <view class="picker">
+            <text class="name" decode="{{true}}">结算账户</text>
+            <view class="con">
+              <view wx:if='{{!re_form.account_name}}' style="color: #808080;">
+                结算账户
+              </view>
+              <view wx:if='{{re_form.account_name}}'>
+                {{re_form.account_name}}
+              </view>
+              <view class="iconfont icon-icon-test3"></view>
+            </view>
+          </view>
+        </picker>
+      </view>
+      <view class="style_number">
+        <text class="name" decode="{{true}}">账户余额</text>
+        <view>{{re_form.balance}}</view>
+      </view>
+      <view class="year">
+        <picker bindchange="bindTypeSelect" value="{{re_form.account_type_id}}" range="{{type_select}}"
+          range-key='account_type_name'>
+          <view class="picker">
+            <text class="name" decode="{{true}}">账目类型</text>
+            <view class="con">
+              <view wx:if='{{!re_form.account_type_id}}' style="color: #808080;">
+                账目类型
+              </view>
+              <view wx:if='{{re_form.account_type_id}}'>
+                {{re_form.account_type_name}}
+              </view>
+              <view class="iconfont icon-icon-test3"></view>
+            </view>
+          </view>
+        </picker>
+      </view>
+      <view class="designation" bindtap='go_select1'>
+        <text class="name" decode="{{true}}">报销金额</text>
+        <view class="con">
+          <view>{{re_form.money}}</view>
+          <view class="iconfont icon-icon-test3"></view>
+        </view>
+      </view>
+      <view class="date">
+        <picker mode="date" value="{{re_form.business_time}}" bindchange="bindDateChange">
+          <view class="picker">
+            <text class="name" decode="{{true}}">业务时间</text>
+            <view class="con">
+              <view wx:if='{{!re_form.business_time}}' style="color: #808080;">
+                业务时间
+              </view>
+              <view wx:if='{{re_form.business_time}}'>
+                {{re_form.business_time}}
+              </view>
+              <view class="iconfont icon-icon-test3"></view>
+            </view>
+          </view>
+        </picker>
+      </view>
+      <view class="year">
+        <picker bindchange="bindUserSelect" value="{{re_form.auth_name}}" range="{{user_select}}" range-key='name'>
+          <view class="picker">
+            <text class="name" decode="{{true}}">审批人</text>
+            <view class="con">
+              <view wx:if='{{!re_form.auth_name}}' style="color: #808080;">
+                审批人
+              </view>
+              <view wx:if='{{re_form.auth_name}}'>
+                {{re_form.auth_name}}
+              </view>
+              <view class="iconfont icon-icon-test3"></view>
+            </view>
+          </view>
+        </picker>
+      </view>
+    </view>
+  </view>
+  <view class="next_step" bindtap='next_step_reimbursement'>完成</view>
+</view>

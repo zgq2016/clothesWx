@@ -82,5 +82,7 @@
   <view class="newProjectShow" wx:if='{{active}}' bindtap='handleActiveHide'>
     <view bindtap='styleSearch' wx:if='{{get_project_style_list}}'>添加款式</view>
     <view bindtap='newAddStyle' wx:if='{{project_style_add}}'>新增款式</view>
+    <view class="icon-increase iconfont">
+    </view>
   </view>
 </view>

@@ -15,22 +15,15 @@ Page({
   go_designFile() {
     navigateTo(`/pages/designFile/index`);
   },
+  go_advance_reimbursement() {
+    navigateTo(`/pages/advance_reimbursement/index`);
+  },
   go_west_produced() {
-    console.log(1);
-    let obj = {
-      token: wx.getStorageSync("token"),
-      time_co: wx.getStorageSync("time_co"),
-      role: wx.getStorageSync("role"),
-      power: wx.getStorageSync("power"),
-      level: wx.getStorageSync("level"),
-      user_id: wx.getStorageSync("user_id"),
-      permission: wx.getStorageSync("permission"),
-    };
     wx.navigateToMiniProgram({
       appId: "wxd4ffb13f8a68b617",
       path: "pages/homePage/index",
       extraData: {
-        foo: "bar",
+        foo: 'bar',
       },
       envVersion: "trial",
       success(res) {
@@ -50,7 +43,6 @@ Page({
       },
     });
   },
-  go_West_produced() {},
   onReady: function () {},
   onShow: function () {},
   onHide: function () {},

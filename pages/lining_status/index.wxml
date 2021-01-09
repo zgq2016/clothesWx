@@ -1,4 +1,4 @@
-<view class="operation">
+<!-- <view class="operation">
   <view class="tab">
     <view bindtap='go_modify_order' wx:if='{{state==1}}'>修改订单</view>
     <view bindtap='go_close_order' wx:if='{{state>0}}'>退单</view>
@@ -6,6 +6,12 @@
     <view bindtap='go_portion_back' wx:if='{{state<4}}'>部分回料</view>
     <view bindtap='go_all_back' wx:if='{{state<4}}'>全部回料</view>
   </view>
+</view> -->
+
+<view class="operation">
+  <picker bindchange="bindStatusSelect" range="{{status_list}}" range-key='status'>
+    <view class="next_step">更新状态</view>
+  </picker>
 </view>
 
 <view class="view_log">
@@ -15,8 +21,11 @@
         <view>预计回料时间</view>
         <view>{{item.returntime}}</view>
       </view>
-      <view class="cell_circle">
-        <view></view>
+      <view class="first_circle" wx:if="{{index==0}}">
+        <view class="ccc {{0==index?'bgc':''}}"></view>
+      </view>
+      <view class="con_circle" wx:if="{{index > 0 }}">
+        <view class="ccc {{0==index?'bgc':''}}"></view>
       </view>
       <view class="logname">
         <view>{{item.logname}}</view>

@@ -180,13 +180,6 @@ Page({
       });
       return;
     }
-    if (this.data.all_form.picurl == "") {
-      wx.showToast({
-        title: "上传凭证",
-        icon: "none",
-      });
-      return;
-    }
 
     let data = {};
     data = this.data.all_form;
@@ -234,13 +227,6 @@ Page({
       return;
     }
     if (this.data.portion_form.amount == "") {
-      wx.showToast({
-        title: "结算金额",
-        icon: "none",
-      });
-      return;
-    }
-    if (this.data.portion_form.returntime == "") {
       wx.showToast({
         title: "结算金额",
         icon: "none",

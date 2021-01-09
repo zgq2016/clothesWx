@@ -128,6 +128,17 @@
           "pathName": "pages/materialProcess_go/index",
           "query": "id=217&index=0&type=edit",
           "scene": null
+        },
+        {
+          "name": "预支报销",
+          "pathName": "pages/advance_reimbursement/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "增加预支报销",
+          "pathName": "pages/add_advance_reimbursement/index",
+          "scene": null
         }
       ]
     }

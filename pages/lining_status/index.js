@@ -14,6 +14,7 @@ Page({
     options_ss: "",
     state: "",
     materials_id: "",
+    status_list: [],
   },
   //options(Object)
   onLoad: function (options) {
@@ -24,6 +25,25 @@ Page({
       style_color_name: options.style_color_name,
     });
     this.init();
+  },
+  bindStatusSelect(e) {
+    let status = this.data.status_list[e.detail.value].status;
+    if (status == "修改订单") {
+      this.go_modify_order();
+    }
+    if (status == "退单") {
+      this.go_close_order();
+    }
+    if (status == "延迟回料") {
+      this.go_delay_back();
+    }
+    if (status == "部分回料") {
+      this.go_portion_back();
+    }
+    if (status == "全部回料") {
+      this.go_all_back();
+    }
+    console.log(this.data.status_list[e.detail.value].status);
   },
   go_close_order() {
     navigateTo(
@@ -124,6 +144,7 @@ Page({
     arr.reverse();
     this.setData({
       arr,
+      arr_length: arr.length - 1,
       quantity,
       balance,
       paid_money,
@@ -132,6 +153,15 @@ Page({
       state,
       materials_id,
       received_quantity,
+    });
+    let status_list = [];
+    if (state == 1) status_list.splice(0, 0, { status: "修改订单" });
+    if (state > 0) status_list.splice(1, 0, { status: "退单" });
+    if (state < 4) status_list.splice(2, 0, { status: "延迟回料" });
+    if (state < 4) status_list.splice(3, 0, { status: "部分回料" });
+    if (state < 4) status_list.splice(4, 0, { status: "全部回料" });
+    this.setData({
+      status_list,
     });
   },
   onReady: function () {},

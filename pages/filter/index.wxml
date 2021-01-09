@@ -1,0 +1,69 @@
+<view class="search_form">
+  <view class="form">
+    <view class="date">
+      <picker mode="date" value="{{form.ctime_start}}" bindchange="bindCtimeStartChange" name='date'>
+        <view class="picker">
+          <text class="name" decode="{{true}}">开始日期</text>
+          <view class="con">
+            <view wx:if='{{!form.ctime_start}}' style="color: #808080;">
+              开始日期
+            </view>
+            <view wx:if='{{form.ctime_start}}'>
+              {{form.ctime_start}}
+            </view>
+            <view class="iconfont icon-icon-test3"></view>
+          </view>
+        </view>
+      </picker>
+    </view>
+    <view class="date">
+      <picker mode="date" value="{{form.ctime_end}}" bindchange="bindCtimeEndChange" name='date'>
+        <view class="picker">
+          <text class="name" decode="{{true}}">结束日期</text>
+          <view class="con">
+            <view wx:if='{{!form.ctime_end}}' style="color: #808080;">
+              结束日期
+            </view>
+            <view wx:if='{{form.ctime_end}}'>
+              {{form.ctime_end}}
+            </view>
+            <view class="iconfont icon-icon-test3"></view>
+          </view>
+        </view>
+      </picker>
+    </view>
+    <view class="date">
+      <picker bindchange="bindTypeSelect" value="{{form.type}}" range="{{type_list}}" range-key='name'>
+        <view class="picker">
+          <text class="name" decode="{{true}}">类型</text>
+          <view class="con">
+            <view wx:if='{{!form.type}}'>
+              请选择类型
+            </view>
+            <view wx:if='{{form.type}}'>
+              {{form.type}}
+            </view>
+            <view class="iconfont icon-icon-test3"></view>
+          </view>
+        </view>
+      </picker>
+    </view>
+    <view class="date">
+      <picker bindchange="bindProposerSelect" value="{{form.user_name}}" range="{{user_select}}" range-key='name'>
+        <view class="picker">
+          <text class="name" decode="{{true}}">申请人</text>
+          <view class="con">
+            <view wx:if='{{!form.user_name}}'>
+              请选择申请人
+            </view>
+            <view wx:if='{{form.user_name}}'>
+              {{form.user_name}}
+            </view>
+            <view class="iconfont icon-icon-test3"></view>
+          </view>
+        </view>
+      </picker>
+    </view>
+    <view class="next_step" bindtap='next_step'>确定</view>
+  </view>
+</view>

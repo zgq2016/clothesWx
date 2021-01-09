@@ -147,35 +147,35 @@ Page({
     if (this.data.user_id_data_list.length == 0) {
       wx.showToast({
         title: "请上传款式图片",
-        icon: 'none',
+        icon: "none",
       });
       return;
     }
     if (this.data.stylename == "") {
       wx.showToast({
         title: "请输入名称",
-        icon: 'none',
+        icon: "none",
       });
       return;
     }
     if (this.data.style_type == "") {
       wx.showToast({
         title: "请输入品类",
-        icon: 'none',
+        icon: "none",
       });
       return;
     }
     if (this.data.year == "") {
       wx.showToast({
         title: "请输入年份",
-        icon: 'none',
+        icon: "none",
       });
       return;
     }
     if (this.data.season == "") {
       wx.showToast({
         title: "请输入季节",
-        icon: 'none',
+        icon: "none",
       });
       return;
     }
@@ -215,7 +215,7 @@ Page({
     console.log(res);
     wx.showToast({
       title: res.data.msg,
-      icon: 'none',
+      icon: "none",
     });
     if (res.data.error_code == 0) {
       navigateTo(`/pages/work/index`);
@@ -234,13 +234,17 @@ Page({
       data: { id: this.data.optionsId },
     });
     console.log(res);
-    this.data.stylist_list.map((v, i) => {
-      res.data.data.user_id_data.map((v1, i1) => {
-        if (v.id == v1.user_id) {
-          v.isCheck = true;
+    if (this.data.stylist_list.length != 0) {
+      this.data.stylist_list.map((v, i) => {
+        if (res.data.data.length != 0) {
+          res.data.data.user_id_data.map((v1, i1) => {
+            if (v.id == v1.user_id) {
+              v.isCheck = true;
+            }
+          });
         }
       });
-    });
+    }
     getApp().globalData.stylist = res.data.data.user_name;
     getApp().globalData.project_id = res.data.data.project_id;
     getApp().globalData.stylist_id = res.data.data.user_id;
@@ -248,6 +252,97 @@ Page({
     this.setData({
       stylist: res.data.data.user_name,
       user_id_data: this.data.stylist_list,
+    });
+    let user_id_data_list = [];
+    if (this.data.user_id_data.length != 0) {
+      this.data.user_id_data.map((v, i) => {
+        if (v.isCheck == true) {
+          user_id_data_list.push(v);
+        }
+      });
+    }
+    this.setData({
+      user_id_data_list,
+    });
+  },
+  async init() {
+    let token = wx.getStorageSync("token");
+    if (!token) {
+      navigateTo(`/pages/login/index`);
+      return;
+    }
+    let level = wx.getStorageSync("level");
+    this.setData({
+      level,
+    });
+    this.get_project();
+    this.init_style();
+    this.get_style_type();
+    this.get_year();
+    this.get_season();
+    this.get_stylist();
+    this.getStyleno();
+    this.get_project_init();
+  },
+  async init_style() {
+    let res = await request({
+      url: "get_style",
+      method: "post",
+      data: { id: this.data.optionsId },
+    });
+    console.log(res);
+    if (res.data.data.style_pic_url != "") {
+      this.data.images_upload_list.push({
+        picurl: res.data.data.style_pic_url,
+      });
+    }
+    if (res.data.data.style_color_pic_url != "") {
+      this.data.images_upload_list.push({
+        picurl: res.data.data.style_color_pic_url,
+      });
+    }
+    let projectname = "";
+    this.data.project_list.map((v, i) => {
+      if (res.data.data.project_id == v.id) {
+        projectname = v.projectname;
+      }
+    });
+
+    this.data.stylist_list.map((v, i) => {
+      res.data.data.user_id_data.map((v1, i1) => {
+        if (v.id == v1.user_id) {
+          v.isCheck = true;
+        }
+      });
+    });
+
+    getApp().globalData.images_upload_list = this.data.images_upload_list;
+    getApp().globalData.designation = res.data.data.stylename;
+    getApp().globalData.cursor = res.data.data.designidea.length;
+    getApp().globalData.styleno = res.data.data.styleno;
+    getApp().globalData.project = projectname;
+    getApp().globalData.project_id = res.data.data.project_id;
+    getApp().globalData.style_type = res.data.data.style_type;
+    getApp().globalData.year = res.data.data.year;
+    getApp().globalData.season = res.data.data.season;
+    getApp().globalData.stylist = res.data.data.user_name;
+    getApp().globalData.stylist_id = res.data.data.user_id;
+    getApp().globalData.user_id_data = this.data.stylist_list;
+    getApp().globalData.designidea = res.data.data.designidea;
+
+    this.setData({
+      user_id_data: this.data.stylist_list,
+      designidea: res.data.data.designidea,
+      cursor: res.data.data.designidea.length,
+      images_upload_list: this.data.images_upload_list,
+      styleno: res.data.data.styleno,
+      stylename: res.data.data.stylename,
+      project_id: res.data.data.project_id,
+      project: projectname,
+      style_type: res.data.data.style_type,
+      year: res.data.data.year,
+      season: res.data.data.season,
+      stylist: res.data.data.user_name,
     });
     let user_id_data_list = [];
     this.data.user_id_data.map((v, i) => {
@@ -259,45 +354,6 @@ Page({
       user_id_data_list,
     });
   },
-  /* 
-  id: 17
-projectname: "aaaaa"
-projecttype: "1"
-picurl: "https://zhongshuyan.net/upload/20201019/20201019194706.png"
-element: ""
-color: ""
-customer_id: "2"
-customer_companyname: "吴东"
-year: "2023"
-season: "秋冬"
-finishtime: "2020-10-20"
-quantity: "11"
-detailed: "aaaaa"
-user_id: "4"
-user_name: "吴越菲"
-style_data: []
-user_id_data: (2) [{…}, {…}]
-ctime: "2020-10-19 17:31:16"
-  */
-  init() {
-    let token = wx.getStorageSync("token");
-    if (!token) {
-      navigateTo(`/pages/login/index`);
-      return;
-    }
-    let level = wx.getStorageSync("level");
-    this.setData({
-      level,
-    });
-    this.get_project();
-    this.get_style_type();
-    this.get_year();
-    this.get_season();
-    this.get_stylist();
-    this.getStyleno();
-    this.get_project_init();
-  },
-
   get_designidea(e) {
     this.setData({ designidea: e.detail.value, cursor: e.detail.cursor });
     getApp().globalData.designidea = this.data.designidea;

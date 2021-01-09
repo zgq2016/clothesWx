@@ -13,6 +13,7 @@ Page({
     claim_num: "",
     designidea: "",
     cursor: "",
+    money: "",
   },
   //options(Object)
   onLoad: function (options) {
@@ -20,6 +21,11 @@ Page({
       tab: options.tab - 0,
     });
     console.log(this.data.tab);
+  },
+  get_money(e) {
+    this.setData({
+      money: e.detail.value,
+    });
   },
   assist_select(e) {
     this.data.user_id_data.map((v, i) => {
@@ -121,6 +127,20 @@ Page({
       delta: 1,
     });
   },
+  next_step9() {
+    if (this.data.tab == 9) {
+      getApp().globalData.pay_form.money = this.data.money;
+      wx.navigateBack({
+        delta: 1,
+      });
+    }
+    if (this.data.tab == 10) {
+      getApp().globalData.re_form.money = this.data.money;
+      wx.navigateBack({
+        delta: 1,
+      });
+    }
+  },
   next_step8() {
     getApp().globalData.project.designidea = this.data.designidea;
     getApp().globalData.project.cursor = this.data.cursor;
@@ -135,6 +155,13 @@ Page({
       let claim_num = app.globalData.project.claim_num;
       this.setData({
         claim_num,
+      });
+    }
+    if (app.globalData.pay_form.money) {
+      console.log(1);
+      let money = app.globalData.pay_form.money;
+      this.setData({
+        money,
       });
     }
     if (app.globalData.project.project_name) {

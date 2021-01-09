@@ -16,7 +16,7 @@
         <view bindtap='nav_goods' class="list" data-item="{{item}}">
           <view class="list_left">
             <view class="list_left_img">
-              <image src="{{item.materials_color_data[0].picurl}}" />
+              <image src="{{item.thumb}}" />
             </view>
             <view class="list_left_content">
               <view class="list_left_content_name">{{item.materialsname}}</view>
@@ -35,7 +35,7 @@
         <view bindtap='nav_goods' class="list" data-item="{{item}}">
           <view class="list_left">
             <view class="list_left_img">
-              <image src="{{item.materials_color_data[0].picurl}}" />
+              <image src="{{item.thumb}}" />
             </view>
             <view class="list_left_content">
               <view class="list_left_content_name">{{item.materialsname}}</view>

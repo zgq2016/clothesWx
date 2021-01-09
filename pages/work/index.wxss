@@ -7,7 +7,6 @@
 .main .search_input {
   width: 700rpx;
   height: 100rpx;
-  background-color: var(--themeColor);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -29,7 +28,7 @@
 .main .search_input .bianji {
   width: 60rpx;
   height: 60rpx;
-  background-color: #f2f2f2;
+  background-color: #fff;
   border-radius: 50%;
   display: flex;
   justify-content: center;
